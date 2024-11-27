@@ -12,7 +12,9 @@ SCOPED_CREDS = CREDS.with_scopes(SCOPE)
 GSPREAD_CLIENT = gspread.authorize(SCOPED_CREDS)
 SHEET = GSPREAD_CLIENT.open("quants_dojo")
 
-quiz_response = SHEET.worksheet("quiz_response")
-data = quiz_response.get_all_values()
+# quiz_response = SHEET.worksheet("quiz_response")
+# data = quiz_response.get_all_values()
 
-print(data)
+# print(data)
+# user_list = SHEET.worksheet("user_list")
+# print(user_list.get_all_values())
