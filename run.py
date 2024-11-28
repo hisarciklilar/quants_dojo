@@ -10,7 +10,7 @@ quiz = Quiz.Quiz(question_list)
 
 print(logo.logo_title)
 
-def start_quiz(self):
+def start_quiz():
     print("Welcome to Quants Dojo!\n\n")
     print("This is a place where you can test your Econometrics skills \n \n")
     print("Ready for the challenge?! \n\n")

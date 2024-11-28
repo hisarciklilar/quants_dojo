@@ -33,6 +33,9 @@ class Quiz:
             print(f"Correct! \n \n  The answer was {self.question_list[self.question_index]["answer"]}\n \n")
         elif self.response.lower() == "quit":
             print("You chose to quit the session.")
+        elif self.response.lower() not in valid_answers:
+            print("Invalid entry. Please try again")
+            self.reveal_question()
         else:
             print(f"This is incorrect.\n \n  The answer was {self.question_list[self.question_index]["answer"]}\n \n")
         print(f"You have answered {self.score} out of {self.question_index +1} questions correctly. \n \n")
