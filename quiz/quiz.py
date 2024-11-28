@@ -8,6 +8,7 @@ class Quiz:
         self.response = ""
         self.score = 0 
         self.question_progress = True
+        self.score_list=[]
 
     def clear_terminal(self):
         input("Press enter to continue...")
@@ -28,24 +29,30 @@ class Quiz:
         
         self.question_progress = True
         self.question_index += 1
-        
+    
 
     def check_answer(self):
         valid_answers = ["true", "false"]
-        if self.response.lower() == self.question_list[self.question_index]["answer"].lower():
+        correct_answer = self.question_list[self.question_index]["answer"]
+        if self.response.lower() == correct_answer.lower():
             self.score += 1
-            print(f"Correct! \n \n  The answer was {self.question_list[self.question_index]["answer"]}\n \n")
+            print(f"Correct! \n \n  The answer was {correct_answer}\n \n")
             print(f"You have answered {self.score} out of {self.question_index +1} questions correctly. \n \n")
             print(f"Your current score is {round((self.score / (self.question_index + 1))*100, 2)}% \n \n")   
+            self.track_score(1)
             self.question_progress = False 
         elif self.response.lower() == "quit":
             print("You chose to quit the session.")
             self.question_progress = False
         elif self.response.lower() not in valid_answers:
-            print("Invalid entry. Please try again\n")
+            print("Value Error: You need to type either 'true' or 'false'. Please try again. \n")
         else:
-            print(f"This is incorrect.\n \n  The answer was {self.question_list[self.question_index]["answer"]}\n \n")
+            print(f"This is incorrect.\n \n  The answer was {correct_answer}\n \n")
             print(f"You have answered {self.score} out of {self.question_index +1} questions correctly. \n \n")
             print(f"Your current score is {round((self.score / (self.question_index + 1))*100, 2)}% \n \n")    
+            self.track_score(0)
             self.question_progress = False
-        
+        print(self.score_list)
+
+    def track_score(self,scr):
+        self.score_list.append(scr)
