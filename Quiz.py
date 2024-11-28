@@ -22,5 +22,9 @@ class Quiz:
     def check_answer(self):
         if self.response.lower() == self.question_list[self.question_index]["answer"].lower():
             print(f"Correct! \n \n  The answer was {self.question_list[self.question_index]["answer"]}\n \n")
+        elif self.response.lower() == "quit":
+            print("You chose to quit the session.")
         else:
             print(f"This is incorrect.\n \n  The answer was {self.question_list[self.question_index]["answer"]}\n \n")
+    
+        
