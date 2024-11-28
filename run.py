@@ -6,7 +6,11 @@ import Quiz
 
 
 quiz = Quiz.Quiz(question_list)
-quiz.reveal_question()
+continue_quiz = True
+
+while continue_quiz:
+    user_response = quiz.reveal_question()
+    continue_quiz = quiz.quiz_continue(user_response)
 
 # SCOPE = [
 #     "https://www.googleapis.com/auth/spreadsheets",
