@@ -31,13 +31,15 @@ class Quiz:
         if self.response.lower() == self.question_list[self.question_index]["answer"].lower():
             self.score += 1
             print(f"Correct! \n \n  The answer was {self.question_list[self.question_index]["answer"]}\n \n")
+            print(f"You have answered {self.score} out of {self.question_index +1} questions correctly. \n \n")
+            print(f"Your current score is {round((self.score / (self.question_index + 1))*100, 2)}% \n \n")    
         elif self.response.lower() == "quit":
             print("You chose to quit the session.")
         elif self.response.lower() not in valid_answers:
-            print("Invalid entry. Please try again")
+            print("Invalid entry. Please try again\n")
             self.reveal_question()
         else:
             print(f"This is incorrect.\n \n  The answer was {self.question_list[self.question_index]["answer"]}\n \n")
-        print(f"You have answered {self.score} out of {self.question_index +1} questions correctly. \n \n")
-        print(f"Your current score is {round((self.score / (self.question_index + 1))*100, 2)}% \n \n")    
+            print(f"You have answered {self.score} out of {self.question_index +1} questions correctly. \n \n")
+            print(f"Your current score is {round((self.score / (self.question_index + 1))*100, 2)}% \n \n")    
         
