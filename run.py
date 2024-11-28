@@ -10,10 +10,15 @@ quiz = Quiz.Quiz(question_list)
 
 print(logo.logo_title)
 
-while not quiz.end_of_quiz():
-    quiz.start_quiz()
-    
+def start_quiz(self):
+    print("Welcome to Quants Dojo!\n\n")
+    print("This is a place where you can test your Econometrics skills \n \n")
+    print("Ready for the challenge?! \n\n")
 
+start_quiz()
+while not quiz.end_of_quiz():
+    quiz.reveal_question()
+    
 
 # SCOPE = [
 #     "https://www.googleapis.com/auth/spreadsheets",

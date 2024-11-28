@@ -12,12 +12,6 @@ class Quiz:
         input("Press enter to continue...")
         os.system('cls' if os.name == 'nt' else 'clear')
 
-    def start_quiz(self):
-        print("Welcome to Quants Dojo!\n\n")
-        print("This is a place where you can test your Econometrics skills \n \n")
-        print("Ready for the challenge?! \n\n")
-        self.reveal_question()
-
     def end_of_quiz(self):
         if self.question_index >= len(self.question_list) or self.response.lower() == "quit":
             print("end of quiz!")
@@ -33,6 +27,7 @@ class Quiz:
 
 
     def check_answer(self):
+        valid_answers = ["true", "false"]
         if self.response.lower() == self.question_list[self.question_index]["answer"].lower():
             self.score += 1
             print(f"Correct! \n \n  The answer was {self.question_list[self.question_index]["answer"]}\n \n")
