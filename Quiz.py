@@ -1,3 +1,5 @@
+import os
+
 class Quiz:
 
     def __init__(self, question_list):
@@ -12,8 +14,12 @@ class Quiz:
             print("end of quiz!")
             return True
 
+    def clear_terminal(self):
+        input("Press enter to continue...")
+        os.system('cls' if os.name == 'nt' else 'clear')
 
     def reveal_question(self):
+        self.clear_terminal()
         question_to_reveal = self.question_list[self.question_index]["question"]
         print(f"Q.{self.question_index + 1}: True or False?\n \n")
         self.response = input(f"'{question_to_reveal}' (True/False)\n \n")

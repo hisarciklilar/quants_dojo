@@ -5,11 +5,13 @@ from question_list import question_list
 import Quiz
 
 
+
 quiz = Quiz.Quiz(question_list)
 
 while not quiz.end_of_quiz():
     quiz.reveal_question()
     
+
 
 # SCOPE = [
 #     "https://www.googleapis.com/auth/spreadsheets",
