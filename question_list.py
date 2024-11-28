@@ -1,7 +1,7 @@
 question_list =[
     {"question": "Serial Correlation is a common problem in time-series data", "answer": "True"}, 
     {"question": "Standard error is obtained through dividing the standard deviation by squareroot of the sample size", "answer": "True"}, 
-    # {"question": "Serial correlation is the same as autocorrelation", "answer": "True"}, 
+    {"question": "Serial correlation is the same as autocorrelation", "answer": "True"}, 
     # {"question": "Logit is used when we have a binary dependent variable", "answer": "True"}, 
     # {"question": "In OLS, the direction of causality is from the independent variable to the dependent variable", "answer": "True"}, 
     # {"question": "Independent and explanatory variables refer to the same thing", "answer": "True"}, 
