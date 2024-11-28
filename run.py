@@ -2,13 +2,11 @@
 # from google.oauth2.service_account import Credentials
 
 from question_list import question_list
+import Quiz
 
-for i in range(len(question_list)):
-    print(question_list[i])
 
-for i in range(len(question_list)):
-    print(question_list[i]["question"])
-
+quiz = Quiz.Quiz(question_list)
+quiz.reveal_question()
 
 # SCOPE = [
 #     "https://www.googleapis.com/auth/spreadsheets",
