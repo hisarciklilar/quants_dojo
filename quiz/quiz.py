@@ -7,6 +7,7 @@ class Quiz:
         self.question_list = question_list
         self.response = ""
         self.score = 0 
+        self.question_progress = True
 
     def clear_terminal(self):
         input("Press enter to continue...")
@@ -18,13 +19,16 @@ class Quiz:
             return True
 
     def reveal_question(self):
-        self.clear_terminal()
-        question_to_reveal = self.question_list[self.question_index]["question"]
-        print(f"Q.{self.question_index + 1}: True or False?\n \n")
-        self.response = input(f"'{question_to_reveal}' (True/False)\n \n")
-        self.check_answer()
+        while self.question_progress:
+            self.clear_terminal()
+            question_to_reveal = self.question_list[self.question_index]["question"]
+            print(f"Q.{self.question_index + 1}: True or False?\n \n")
+            self.response = input(f"'{question_to_reveal}' (True/False)\n \n")
+            self.check_answer()
+        
+        self.question_progress = True
         self.question_index += 1
-
+        
 
     def check_answer(self):
         valid_answers = ["true", "false"]
@@ -32,14 +36,16 @@ class Quiz:
             self.score += 1
             print(f"Correct! \n \n  The answer was {self.question_list[self.question_index]["answer"]}\n \n")
             print(f"You have answered {self.score} out of {self.question_index +1} questions correctly. \n \n")
-            print(f"Your current score is {round((self.score / (self.question_index + 1))*100, 2)}% \n \n")    
+            print(f"Your current score is {round((self.score / (self.question_index + 1))*100, 2)}% \n \n")   
+            self.question_progress = False 
         elif self.response.lower() == "quit":
             print("You chose to quit the session.")
+            self.question_progress = False
         elif self.response.lower() not in valid_answers:
             print("Invalid entry. Please try again\n")
-            self.reveal_question()
         else:
             print(f"This is incorrect.\n \n  The answer was {self.question_list[self.question_index]["answer"]}\n \n")
             print(f"You have answered {self.score} out of {self.question_index +1} questions correctly. \n \n")
             print(f"Your current score is {round((self.score / (self.question_index + 1))*100, 2)}% \n \n")    
+            self.question_progress = False
         

@@ -1,12 +1,12 @@
 # import gspread
 # from google.oauth2.service_account import Credentials
 
-from question_list import question_list
-import Quiz
-import logo
+from quiz.question_list import question_list
+import quiz.quiz
+import quiz.logo as logo
 
 
-quiz = Quiz.Quiz(question_list)
+quiz = quiz.quiz.Quiz(question_list)
 
 print(logo.logo_title)
 
