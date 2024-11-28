@@ -8,15 +8,20 @@ class Quiz:
         self.response = ""
         self.score = 0 
 
+    def clear_terminal(self):
+        input("Press enter to continue...")
+        os.system('cls' if os.name == 'nt' else 'clear')
+
+    def start_quiz(self):
+        print("Welcome to Quants Dojo!\n \n")
+        print("This is a place where you can test your Econometrics skills \n \n")
+        print("Ready for the challenge?! \n \n")
+        self.reveal_question()
 
     def end_of_quiz(self):
         if self.question_index >= len(self.question_list) or self.response.lower() == "quit":
             print("end of quiz!")
             return True
-
-    def clear_terminal(self):
-        input("Press enter to continue...")
-        os.system('cls' if os.name == 'nt' else 'clear')
 
     def reveal_question(self):
         self.clear_terminal()

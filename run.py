@@ -9,7 +9,7 @@ import Quiz
 quiz = Quiz.Quiz(question_list)
 
 while not quiz.end_of_quiz():
-    quiz.reveal_question()
+    quiz.start_quiz()
     
 
 
