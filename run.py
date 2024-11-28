@@ -9,7 +9,6 @@ import logo
 quiz = Quiz.Quiz(question_list)
 
 print(logo.logo_title)
-print(logo.logo_picture)
 
 while not quiz.end_of_quiz():
     quiz.start_quiz()

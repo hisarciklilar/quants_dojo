@@ -13,9 +13,9 @@ class Quiz:
         os.system('cls' if os.name == 'nt' else 'clear')
 
     def start_quiz(self):
-        print("Welcome to Quants Dojo!\n")
-        print("This is a place where you can test your Econometrics skills \n")
-        print("Ready for the challenge?! \n")
+        print("Welcome to Quants Dojo!\n\n")
+        print("This is a place where you can test your Econometrics skills \n \n")
+        print("Ready for the challenge?! \n\n")
         self.reveal_question()
 
     def end_of_quiz(self):
