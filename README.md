@@ -30,3 +30,13 @@ The deployment terminal is set to 80 columns by 24 rows. That means that each li
 ---
 
 Happy coding!
+
+## Existing Features
+
+- Allows users to quit if they want to before the completion of the quiz.
+- Print the number total questions answered up to the progress level and the number of correct answer after each response. Print score up to the point of progress at the end of each question response
+- Clear screen for better visibility when revealing the next question.
+
+## Features to add
+
+- Creating a databank of questions for different topics and allow the users to choose in which topic they test their skills.

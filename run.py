@@ -1,19 +1,18 @@
 # import gspread
 # from google.oauth2.service_account import Credentials
 
-from quiz.question_list import question_list
+from quiz.assets.question_list import question_list
 import quiz.quiz
-import quiz.logo as logo
-
-
-quiz = quiz.quiz.Quiz(question_list)
-
-print(logo.logo_title)
+import quiz.assets.logo as logo
 
 def start_quiz():
     print("Welcome to Quants Dojo!\n\n")
     print("This is a place where you can test your Econometrics skills \n \n")
     print("Ready for the challenge?! \n\n")
+
+
+quiz = quiz.quiz.Quiz(question_list)
+print(logo.logo_title)
 
 start_quiz()
 while not quiz.end_of_quiz():
