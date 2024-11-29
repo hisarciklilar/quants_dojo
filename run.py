@@ -45,10 +45,8 @@ def quiz_info():
     print("You may type 'quit' to quit the quiz anytime.\n")
 
 
-
-# start_quiz()
-# quiz_info()
-
+start_quiz()
+quiz_info()
 
 
 # Run quiz
