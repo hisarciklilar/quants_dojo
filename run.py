@@ -1,8 +1,8 @@
 # import gspread
 # from google.oauth2.service_account import Credentials
-import os
+# import os
 import quiz.quiz
-import quiz.assets.logo as logo
+# import quiz.assets.logo as logo
 from quiz.assets.question_bank import question_list
 import quiz.quiz_generator
 import quiz.quiz_start as quiz_start
