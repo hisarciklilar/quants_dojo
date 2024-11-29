@@ -46,6 +46,10 @@ Happy coding!
 
 - Creating a databank of questions for different topics and allow the users to choose in which topic they test their skills.
 
+## Bugs
+
+- Code written so that owner can choose the quiz length. In the current form, the quiz length is set to be 10 questions with a global variable. The spreadsheet created on google drive is designed to hold information for 10 questions. If the owner changes the value of the QUIZ_LENGTH variable to a different value, the functions will run, but the scores written to the spreadsheets will be labelled wrong in spreadsheet. One way to get around this issue would be to re-create a worksheet that would match the set quiz length. 
+
 ## Credits
 
 - Logo is obtained from [ASCII](https://ascii.co.uk). Chosen font type: "stop". Image is cropped from "temples"
