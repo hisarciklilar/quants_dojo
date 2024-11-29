@@ -1,22 +1,31 @@
 # import gspread
 # from google.oauth2.service_account import Credentials
 
-from quiz.assets.question_list import question_list
-import quiz.quiz
-import quiz.assets.logo as logo
-
-def start_quiz():
-    print("Welcome to Quants Dojo!\n\n")
-    print("This is a place where you can test your Econometrics skills \n \n")
-    print("Ready for the challenge?! \n\n")
+# from quiz.assets.question_list import question_list
+# import quiz.quiz
+# import quiz.assets.logo as logo
+from quiz.assets.question_list2 import question_list as question_list
+import quiz.quiz_generator
 
 
-quiz = quiz.quiz.Quiz(question_list)
-print(logo.logo_title)
+# def start_quiz():
+#     print("Welcome to Quants Dojo!\n\n")
+#     print("This is a place where you can test your Econometrics skills \n \n")
+#     print("Ready for the challenge?! \n\n")
 
-start_quiz()
-while not quiz.end_of_quiz():
-    quiz.reveal_question()
+
+# quiz = quiz.quiz.Quiz(question_list)
+# print(logo.logo_title)
+
+quiz_generator = quiz.quiz_generator.QuizGenerator(question_list,8)
+# quiz_question_list = quiz_generator.generate_quiz(question_list)
+print(quiz_generator.quiz_questions)
+print(quiz_generator.question_data)
+quiz_question_list = quiz_generator.generate_quiz()
+
+# start_quiz()
+# while not quiz.end_of_quiz():
+#     quiz.reveal_question()
     
 
 # SCOPE = [
