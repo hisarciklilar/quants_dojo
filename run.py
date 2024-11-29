@@ -7,16 +7,20 @@ from quiz.assets.question_bank import question_list
 import quiz.quiz_generator
 import quiz.quiz_start as quiz_start
 
+# Generate quiz
 quiz_generator = quiz.quiz_generator.QuizGenerator(question_list,3)
 quiz_question_list = quiz_generator.generate_quiz()
 
-quiz = quiz.quiz.Quiz(quiz_question_list)
-
+# Start quiz
 quiz_start.quiz_start()
+
+# Run quiz
+quiz = quiz.quiz.Quiz(quiz_question_list)
 
 while not quiz.end_of_quiz():
     quiz.reveal_question()
     
+print(f"Here is a summary of your performance {quiz.score_list}")
 
 # SCOPE = [
 #     "https://www.googleapis.com/auth/spreadsheets",

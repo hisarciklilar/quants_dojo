@@ -52,7 +52,6 @@ class Quiz:
             print(f"Your current score is {round((self.score / (self.question_index + 1))*100, 2)}% \n \n")    
             self.track_score(0)
             self.question_progress = False
-        print(self.score_list)
 
     def track_score(self,scr):
         self.score_list.append(scr)
