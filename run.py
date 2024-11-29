@@ -1,10 +1,9 @@
 # import gspread
 # from google.oauth2.service_account import Credentials
 
-# from quiz.assets.question_list import question_list
-# import quiz.quiz
+import quiz.quiz
 # import quiz.assets.logo as logo
-from quiz.assets.question_list2 import question_list as question_list
+from quiz.assets.question_list import question_list as question_list
 import quiz.quiz_generator
 
 
@@ -14,18 +13,16 @@ import quiz.quiz_generator
 #     print("Ready for the challenge?! \n\n")
 
 
-# quiz = quiz.quiz.Quiz(question_list)
 # print(logo.logo_title)
 
-quiz_generator = quiz.quiz_generator.QuizGenerator(question_list,8)
-# quiz_question_list = quiz_generator.generate_quiz(question_list)
-print(quiz_generator.quiz_questions)
-print(quiz_generator.question_data)
+quiz_generator = quiz.quiz_generator.QuizGenerator(question_list,3)
 quiz_question_list = quiz_generator.generate_quiz()
 
+quiz = quiz.quiz.Quiz(quiz_question_list)
+
 # start_quiz()
-# while not quiz.end_of_quiz():
-#     quiz.reveal_question()
+while not quiz.end_of_quiz():
+    quiz.reveal_question()
     
 
 # SCOPE = [
