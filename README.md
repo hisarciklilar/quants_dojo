@@ -33,6 +33,11 @@ Happy coding!
 
 ## Existing Features
 
+### QuizGenerator
+
+- Allows the owner of the platform to choose the quiz length
+- Each True/False question in the question bank is phrased in two alternative ways, one with "True" as the correct answer and the other alternative version with "False" as the correct answer. The QuizGenerator randomly selects from these two alternatives while appending each question to the quiz question list. 
+
 - Allows users to quit if they want to before the completion of the quiz.
 - Print the number total questions answered up to the progress level and the number of correct answer after each response. Print score up to the point of progress at the end of each question response
 - Clear screen for better visibility when revealing the next question.
@@ -40,3 +45,7 @@ Happy coding!
 ## Features to add
 
 - Creating a databank of questions for different topics and allow the users to choose in which topic they test their skills.
+
+## Credits
+
+- Logo is obtained from [ASCII](https://ascii.co.uk). Chosen font type: "stop". Image is cropped from "temples"

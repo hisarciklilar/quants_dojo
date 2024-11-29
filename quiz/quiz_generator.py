@@ -10,7 +10,6 @@ class QuizGenerator:
     def generate_quiz(self):
         for i in range(self.quiz_length):
             question_version = random.randint(0,1)
-            print(f"random number generated {question_version}")
             if question_version == 0:
                 question_text = self.question_data[i]["question_0"]
                 answer_text = self.question_data[i]["answer_0"]
