@@ -8,6 +8,7 @@ def clear_terminal_start():
     input("Press enter if you dare!\n")
     os.system('cls' if os.name == 'nt' else 'clear')
 
+
 def start_quiz():
     print(logo.logo_picture)
     print("Welcome to Quants Dojo!\n")
