@@ -1,8 +1,8 @@
 import os
-import quiz.quiz
+# import quiz.quiz
 import quiz.assets.logo as logo
-from quiz.assets.question_bank import question_list
-import quiz.quiz_generator
+# from quiz.assets.question_bank import question_list
+# import quiz.quiz_generator
 
 def clear_terminal_start():
     input("Press enter if you dare!\n")
@@ -21,5 +21,5 @@ def quiz_info():
     print("You may type 'quit' to quit the quiz anytime.\n")
 
 def quiz_start():
-    start_quiz()
+    # start_quiz()
     quiz_info()
