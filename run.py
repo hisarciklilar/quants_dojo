@@ -46,8 +46,8 @@ def quiz_info():
 
 
 
-start_quiz()
-quiz_info()
+# start_quiz()
+# quiz_info()
 
 
 
