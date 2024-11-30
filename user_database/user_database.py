@@ -20,6 +20,23 @@ class UserDatabase:
     def __init__(self):
         self.user_id = 0
         self.score_list = []
+    
+    def call_user_id_list(self):
+        user_id_list_str = SHEET.worksheet("user_list").col_values(1)
+        user_id_list_str.pop(0)
+        user_id_list = [int(id) for id in user_id_list_str]
+        return user_id_list
+    
+    # def user_exists(self):
+    #     user_list_sheet = SHEET.worksheet("user_list")
+    #     user_id_list_str = user_list_sheet.col_values(1)
+    #     user_id_list_str.pop(0)
+    #     user_id_list = [int(id) for id in user_id_list_str]
+    #     if self.user_id in user_id_list:
+    #         print("User id exists")
+    #     else: 
+    #         print("user id not found") 
+        
 
     def calculate_final_score(self):
         quiz_response_sheet = SHEET.worksheet("quiz_response")

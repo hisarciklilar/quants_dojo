@@ -27,7 +27,9 @@ quiz_generator = quiz.quiz_generator.QuizGenerator(question_list,QUIZ_LENGTH)
 quiz_question_list = quiz_generator.generate_quiz()
 
 # Start quiz
-quiz.quiz_start.quiz_start()
+user = UserDatabase()
+user_id_str = quiz.quiz_start.quiz_start()
+user.user_id = int(user_id_str)
 
 # Run quiz
 quiz = quiz.quiz.Quiz(quiz_question_list)
@@ -36,6 +38,6 @@ while not quiz.end_of_quiz():
 
 # Export results to user database
 #score_list = quiz.score_list
-user = UserDatabase()
+
 user.score_list = quiz.score_list
 user.calculate_final_score()
