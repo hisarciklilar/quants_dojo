@@ -1,5 +1,6 @@
 import random 
 
+
 class QuizGenerator:
     def __init__(self, question_data, quiz_length):
         self.quiz_questions = []
@@ -8,6 +9,9 @@ class QuizGenerator:
 
 
     def generate_quiz(self):
+        """
+        Generates quiz based on a random draw of two versions of the same question
+        """
         for i in range(self.quiz_length):
             question_version = random.randint(0,1)
             if question_version == 0:
