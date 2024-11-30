@@ -59,9 +59,15 @@ def add_date_to_quiz_record(self):
 
 def call_previous_score(self):
     quiz_score_list_str = SHEET.worksheet("quiz_response").col_values(12)   
+    print(quiz_score_list_str)
     recorded_user_id_list_str = SHEET.worksheet("quiz_response").col_values(1) 
+    print(recorded_user_id_list_str)
+    date_time = SHEET.worksheet("quiz_response").col_values(13)   
+    print(date_time)
     quiz_score_list_str.pop(0)
+    print(quiz_score_list_str)
     recorded_user_id_list_str.pop(0)
+    date_time.pop(0)
     quiz_score_list = [int(score) for score in quiz_score_list_str]
     recorded_user_id_list = [int(id) for id in recorded_user_id_list_str]
     print(quiz_score_list)
@@ -70,9 +76,11 @@ def call_previous_score(self):
         print("you took this quiz before")
         recorded_user_id_list.reverse()
         quiz_score_list.reverse()
+        date_time.reverse()
         index = recorded_user_id_list.index(self.user_id)
         print(index)
         self.previous_score = quiz_score_list[index]
-        print(f"Your previous score on this test was {self.previous_score}")
+        previous_date_time = date_time[index]
+        print(f"Your previous score on this test was {self.previous_score} on {previous_date_time}")
     else:
         print("It is your first attempt.")
