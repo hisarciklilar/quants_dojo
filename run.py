@@ -1,8 +1,8 @@
 # import gspread
 # from google.oauth2.service_account import Credentials
-import os
+# import os
 import quiz.quiz
-import quiz.assets.logo as logo
+# import quiz.assets.logo as logo
 from quiz.assets.question_bank import question_list
 import quiz.quiz_generator
 import quiz.quiz_start
@@ -27,7 +27,7 @@ quiz_generator = quiz.quiz_generator.QuizGenerator(question_list,QUIZ_LENGTH)
 quiz_question_list = quiz_generator.generate_quiz()
 
 # Start quiz
-quiz.quiz_start.quiz_start()
+user_id = quiz.quiz_start.quiz_start()
 
 # Run quiz
 quiz = quiz.quiz.Quiz(quiz_question_list)
@@ -36,6 +36,6 @@ while not quiz.end_of_quiz():
 
 # Export results to user database
 score_list = quiz.score_list
-user_database = UserDatabase(345,score_list)
+user_database = UserDatabase(user_id, score_list)
 user_database.calculate_final_score()
 

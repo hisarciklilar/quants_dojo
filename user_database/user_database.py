@@ -34,8 +34,7 @@ class UserDatabase:
         print(self.score_list)
         final_score = (sum(self.score_list) / QUIZ_LENGTH) * 100
         print(f"Your final score is {final_score}%")
-        user_id =[456]
-        self.score_list.insert(0, user_id[0])
+        self.score_list.insert(0, self.user_id)
         self.score_list.append(final_score)
         print(self.score_list)
         quiz_response_sheet.append_row(self.score_list)
