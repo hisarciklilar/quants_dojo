@@ -17,9 +17,9 @@ SHEET = GSPREAD_CLIENT.open("quants_dojo")
 
 class UserDatabase:
 
-    def __init__(self, user_id, score_list):
-        self.user_id = user_id
-        self.score_list = score_list
+    def __init__(self):
+        self.user_id = 0
+        self.score_list = []
 
     def calculate_final_score(self):
         quiz_response_sheet = SHEET.worksheet("quiz_response")

@@ -31,6 +31,18 @@ The deployment terminal is set to 80 columns by 24 rows. That means that each li
 
 Happy coding!
 
+# Quants Dojo
+
+Quants Dojo is a game-like True/False quiz targeting lerners of Econometrics. It is designed to test user's knowledge in certain concepts in Econometrics and help them practise and learn as they answer questions.   
+
+The quiz consists of 10 questions. These are designed to test and clarify the confusions and the most commonly made mistakes by the learners.   
+
+Each ccomcept tested is phrased in two alternative ways: (i) the correct answer is True; (ii) the correct answer is false. 
+
+The quiz questions are created once the user provides a correct id. the tru and false versions of the concept teted is chosen rtandomly for each concept. 
+
+Users may take the quiz repeteadly. In order for them not to just enter the memorised answers from the previous round, the 
+
 ## Existing Features
 
 ### QuizGenerator
@@ -41,10 +53,14 @@ Happy coding!
 - Allows users to quit if they want to before the completion of the quiz.
 - Print the number total questions answered up to the progress level and the number of correct answer after each response. Print score up to the point of progress at the end of each question response
 - Clear screen for better visibility when revealing the next question.
-
+- Makes a list of individual question scores as user proceeds in the quiz. This list of responses are coded as zero for the wrong and as one for the correct user answers. This allows for easy data store and also a straightforward calculation of the quiz score. 
+- In case of a user quitting before the end of survey, scores up until quit are still recorded in a list, adding zero to the questions not answered (those which would be listed post-quit). These scroes are written into the spreadsheet. 
 ## Features to add
 
 - Creating a databank of questions for different topics and allow the users to choose in which topic they test their skills.
+- For those who genueniely do not know their user id, add a user option to exit the quiz during validation.
+- Add a time stamp for completion of the quiz
+- Comparison with the latest previous score and giving feedback
 
 ## Bugs
 
