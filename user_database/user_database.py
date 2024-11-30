@@ -22,6 +22,7 @@ class UserDatabase:
         self.user_id = 0
         self.score_list = []
         self.quiz_score = 0 
+        self.previous_score = 0
     
     
     def call_user_id_list(self):
@@ -46,6 +47,7 @@ class UserDatabase:
         self.score_list.append(self.quiz_score)
         add_date_to_quiz_record(self)
         print(self.score_list)
+        call_previous_score(self)
         quiz_response_sheet.append_row(self.score_list)
 
 def calculate_quiz_score(self):
@@ -54,3 +56,23 @@ def calculate_quiz_score(self):
 def add_date_to_quiz_record(self):
     date_time = datetime.datetime.now().strftime("%c")
     self.score_list.append(date_time)
+
+def call_previous_score(self):
+    quiz_score_list_str = SHEET.worksheet("quiz_response").col_values(12)   
+    recorded_user_id_list_str = SHEET.worksheet("quiz_response").col_values(1) 
+    quiz_score_list_str.pop(0)
+    recorded_user_id_list_str.pop(0)
+    quiz_score_list = [int(score) for score in quiz_score_list_str]
+    recorded_user_id_list = [int(id) for id in recorded_user_id_list_str]
+    print(quiz_score_list)
+    print(recorded_user_id_list)
+    if self.user_id in recorded_user_id_list:
+        print("you took this quiz before")
+        recorded_user_id_list.reverse()
+        quiz_score_list.reverse()
+        index = recorded_user_id_list.index(self.user_id)
+        print(index)
+        self.previous_score = quiz_score_list[index]
+        print(f"Your previous score on this test was {self.previous_score}")
+    else:
+        print("It is your first attempt.")
