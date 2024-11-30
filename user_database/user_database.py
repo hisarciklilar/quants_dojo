@@ -1,5 +1,6 @@
 import gspread
 from google.oauth2.service_account import Credentials
+import datetime
 # from run import QUIZ_LENGTH
 QUIZ_LENGTH =10 
 
@@ -20,27 +21,18 @@ class UserDatabase:
     def __init__(self):
         self.user_id = 0
         self.score_list = []
+        self.quiz_score = 0 
+    
     
     def call_user_id_list(self):
         user_id_list_str = SHEET.worksheet("user_list").col_values(1)
         user_id_list_str.pop(0)
         user_id_list = [int(id) for id in user_id_list_str]
         return user_id_list
-    
-    # def user_exists(self):
-    #     user_list_sheet = SHEET.worksheet("user_list")
-    #     user_id_list_str = user_list_sheet.col_values(1)
-    #     user_id_list_str.pop(0)
-    #     user_id_list = [int(id) for id in user_id_list_str]
-    #     if self.user_id in user_id_list:
-    #         print("User id exists")
-    #     else: 
-    #         print("user id not found") 
-        
 
+        
     def calculate_final_score(self):
         quiz_response_sheet = SHEET.worksheet("quiz_response")
-        # data = quiz_response_sheet.get_all_values()
         if len(self.score_list) == QUIZ_LENGTH:
             print("You answered all questions")
         else:
@@ -49,10 +41,16 @@ class UserDatabase:
         for i in range(missing_responses):
             self.score_list.append(0)
         print(self.score_list)
-        final_score = (sum(self.score_list) / QUIZ_LENGTH) * 100
-        print(f"Your final score is {final_score}%")
+        calculate_quiz_score(self)
         self.score_list.insert(0, self.user_id)
-        self.score_list.append(final_score)
+        self.score_list.append(self.quiz_score)
+        add_date_to_quiz_record(self)
         print(self.score_list)
         quiz_response_sheet.append_row(self.score_list)
 
+def calculate_quiz_score(self):
+    self.quiz_score = (sum(self.score_list) / QUIZ_LENGTH) * 100
+
+def add_date_to_quiz_record(self):
+    date_time = datetime.datetime.now().strftime("%c")
+    self.score_list.append(date_time)
