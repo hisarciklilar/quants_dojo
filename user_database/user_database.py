@@ -81,6 +81,17 @@ def call_previous_score(self):
         print(index)
         self.previous_score = quiz_score_list[index]
         previous_date_time = date_time[index]
-        print(f"Your previous score on this test was {self.previous_score} on {previous_date_time}")
+        print(f"You scored {self.quiz_score}% on this attempt.\n")
+        print(f"Your previous score on this test was {self.previous_score}% on {previous_date_time}\n")
+        provide_feedback(self)
     else:
-        print("It is your first attempt.")
+        print(f"You scored {self.quiz_score}% on this quiz.\n")
+        print("come back to increase your test score!")
+
+def provide_feedback(self):
+    if self.quiz_score > self.previous_score:
+        print("Your score has increased in comparison to previous time! Well done on your improvement!\n")
+    if self.quiz_score == self.previous_score:
+        print("Your score has remained the same in comparison to last time.\n")
+    if self.quiz_score < self.previous_score:
+        print("Your score has decreased since last time. You may want to take the quiz again.\n")
