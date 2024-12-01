@@ -43,6 +43,7 @@ def start_quiz():
     # print("Ready to test your Econometrics skills? \n")
     print(Panel.fit("Welcome to Quants Dojo!\n \nReady to test your Econometrics skills?", padding = 1, style = "blue bold"))
     while True:
+        print("\n")
         user_id_str = input("Type your USER ID below and continue to the quiz if you dare!\n")
         if validate_user_id(user_id_str):
             console.print("User id recorded. Starting the quiz...", style = "yellow")
@@ -53,17 +54,17 @@ def quiz_info():
     """
     Display quiz information
     """
-    console.print(logo.logo_title, style = "magenta")
+    console.print(logo.logo_title, style = "magenta bold")
     # print("This challenge includes 10 True/False questions.\n")
     # print("Your task is to find whether the statement provided is 'true' or 'false'.\n")
     # print("Type: 'true' (without the quotation mark) if you think the statement is true.\n")
     # print("Type: 'false' (without the quotation mark) if you think the statement is false.\n")
     # print("Type: 'quit' if you want to quit the quiz half-way through\n")
-    print(Panel.fit("""This challenge includes [blue]10[/blue] True/False questions.\n
+    print(Panel.fit("""This challenge includes [blue bold]10[/blue bold] True/False questions.\n
     Your task is to find whether the statement provided is 'true' or 'false'.\n
-    Type: '[green]true[/green]' if you think the statement is true.\n
-    Type: '[red]false[/red]' if you think the statement is false.\n
-    Type: '[yellow]quit[/yellow]' if you want to quit the quiz half-way through.""", padding = 1))
+    Type: '[green bold]true[/green bold]' if you think the statement is true.\n
+    Type: '[red bold]false[/red bold]' if you think the statement is false.\n
+    Type: '[yellow bold]quit[/yellow bold]' if you want to quit the quiz half-way through.""", padding = 1))
 
 
 def quiz_start():

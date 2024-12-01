@@ -27,8 +27,8 @@ class Quiz:
         while self.question_progress:
             self.clear_terminal()
             question_to_reveal = self.question_list[self.question_index]["question"]
-            print(f"\n\nQ.{self.question_index + 1}: True or False?\n \n")
-            self.response = input(f"'{question_to_reveal}' (True/False)\n \n")
+            print(f"\nQ.{self.question_index + 1}: True or False?\n\n")
+            self.response = input(f"'{question_to_reveal}' (True/False)\n")
             self.check_answer()
         
         self.question_progress = True
