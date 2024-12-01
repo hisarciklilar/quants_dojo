@@ -121,6 +121,16 @@ Users may take the quiz repeteadly. In order for them not to just enter the memo
 | Counts of correct answers and questions responded | Moving along the quiz providing different combinations of answers | Correct counting of correct answers and questions responded | Pass |
 |Current score calculation | Moving along the quiz providing different combinations of answers | Correct calculation of score up to the point of progress | Pass |
 
+### End of Quiz
+
+| FEATURE BEING TESTED            | TESTING PERFORMED                                | EXPECTATION                              | RESULT    |
+|------------------------|---------------------------------------|------------------------------------------|-----------|
+| Quiz results information | Answered all questions in quiz as a first attempt | Quiz score printed correctly on terminal | Pass |
+| Quiz results information | Answered all questions in quiz as a second or more attempt | Quiz score printed correctly on terminal | Pass |
+| Previous score information | Answered all questions in quiz as a second or more attempt | Latest previous quiz score and date-time of attempt printed correctly on terminal | Pass |
+| Previous score information | Answered all questions in quiz as first attempt | No mentioning of a previous quiz score on terminal. A message is printed instead encouraging user to come back | Pass |
+| Go back to start  | Pressed enter in response to 'Restart quiz?' question provided in the very end | Screen returns to start of the quiz on `Enter` | Pass |
+| Exit quiz |  typed `exit` in response to 'Restart quiz?' question provided in the very end | Exit the quiz | Pass |
 
 ## Bugs
 

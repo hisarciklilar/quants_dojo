@@ -10,6 +10,9 @@ from rich.console import Console
 console = Console()
 
 def quants_dojo():
+    """
+    Administers the whole quiz
+    """
     # Generate quiz
     quiz_generator = QuizGenerator(question_list,QUIZ_LENGTH)
     quiz_question_list = quiz_generator.generate_quiz()
@@ -32,15 +35,15 @@ def quants_dojo():
 
     restart_quiz()
 
+
 def restart_quiz():
+    """
+    Restarts the quiz on user request
+    """
     print("\n")
-    console.print(Panel.fit("Would you like another go? Press enter \n\n Would you like to exit? Type exit", style = "blue bold", title = "Restart the quiz?", padding=1))
-    user_choice = input("Your choice?")
-    if user_choice == "":
-        quants_dojo()
-    elif user_choice.strip().lower() == "exit":
-        exit()
-    else:
-        print("Please press enter to play again or type exit to exit")
+    console.print(Panel.fit("Press enter if you would like another go", style = "blue bold", title = "Restart the quiz?", padding=1))
+    input()
+    quants_dojo()
     
+
 quants_dojo()
