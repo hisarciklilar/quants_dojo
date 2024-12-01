@@ -76,6 +76,12 @@ Users may take the quiz repeteadly. In order for them not to just enter the memo
 
 ## Credits
 
-- Logo is obtained from [ASCII](https://ascii.co.uk). Chosen font type: "stop". Image is cropped from "temples"
-- Color and formatting is done through "rich". instelled using "pip install rich". Documentation is https://github.com/textualize
-- 
+- [ASCII](https://ascii.co.uk). Chosen font type: "stop". Image is cropped from "temples"
+
+### Python's Rich Module
+
+- Color and formatting is done through "rich". instelled using "pip install rich". Documentation is https://github.com/textualize. thaks to m
+- My mentor Matt Bodden for directing me to this module
+- [Python Rich YouTube Video by DevOps Journey](https://www.youtube.com/watch?v=JrGFQp9njas)
+- Chat GPT and Microsoft Co-Pilot for Rich Module Progress Bar
+  
