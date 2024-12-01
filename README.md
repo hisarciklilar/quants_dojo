@@ -105,6 +105,7 @@ Users may take the quiz repeteadly. In order for them not to just enter the memo
 
 - Code written so that owner can choose the quiz length. In the current form, the quiz length is set to be 10 questions with a global variable. The spreadsheet created on google drive is designed to hold information for 10 questions. If the owner changes the value of the QUIZ_LENGTH variable to a different value, the functions will run, but the scores written to the spreadsheets will be labelled wrong in spreadsheet. One way to get around this issue would be to re-create a worksheet that would match the set quiz length.
 - Registered users may use code 999 to practice and then come back to take it using their own id's. Though this is a bug, implications on learning is not bad. Users will learn as they practice.  
+- At the end of the quiz, printing of quiz results in the panel produces extra space on the left, which I failed to get rid of.  
 
 ## Deploying the app on Heroku
 

@@ -34,6 +34,8 @@ class UserDatabase:
         self.score_list = []
         self.quiz_score = 0 
         self.previous_score = 0
+        self.previous_date_time = None
+        self.first_attempt = True
     
     
     def call_user_id_list(self):
@@ -53,7 +55,7 @@ class UserDatabase:
         quiz_response_sheet = SHEET.worksheet("quiz_response")
         if len(self.score_list) != QUIZ_LENGTH:
             missing_responses = QUIZ_LENGTH - len(self.score_list)
-            print(f"You did not answer {missing_responses} remaining questions")
+            console.print(f"You did not answer {missing_responses} remaining questions\n\n", style="cyan bold")
             for i in range(missing_responses):
                 self.score_list.append(0)
         
@@ -74,7 +76,8 @@ class UserDatabase:
             quiz_response_sheet.append_row(self.score_list)
             progress.update(task, advance =1)
             time.sleep(1)        
-
+        
+        self.print_score()
 
 
     def calculate_quiz_score(self):
@@ -108,30 +111,38 @@ class UserDatabase:
         recorded_user_id_list = [int(id) for id in recorded_user_id_list_str]
         
         if self.user_id in recorded_user_id_list:
+            self.first_attempt = False
             recorded_user_id_list.reverse()
             quiz_score_list.reverse()
             date_time.reverse()
 
             index = recorded_user_id_list.index(self.user_id)
             self.previous_score = quiz_score_list[index]
-            previous_date_time = date_time[index]
+            self.previous_date_time = date_time[index]
 
+    def print_score(self):
+        """
+        Prints user's quiz score while calling the latest previous quiz performance for repeating users
+        """
+        if not self.first_attempt:
             print("\n")
-            console.print(f":white_heavy_check_mark: You scored {self.quiz_score}% on this attempt.\n\n", style = "orchid")
-            console.print(f":white_heavy_check_mark: Your previous score on this test was {self.previous_score}% on {previous_date_time}\n""", style = "orchid bold")
+            console.print(Panel.fit(f"""
+            :white_heavy_check_mark: You scored {self.quiz_score}% on this attempt.\n\n
+            :white_heavy_check_mark: Your previous score on this test was {self.previous_score}% on {self.previous_date_time}\n""", 
+            style = "violet bold", title = "Quiz Results"))
             self.provide_feedback()
         else:
             print(f"You scored {self.quiz_score}% on this quiz.\n")
             print("Come back to increase your test score!")
 
-
     def provide_feedback(self):
         """ 
         Provides feedback based on a comparison of previous and current scores
         """
+        print("\n")
         if self.quiz_score > self.previous_score:
-            print("Your score has increased in comparison to previous time! Well done on your improvement!\n")
+            console.print(Panel.fit("Your score has increased in comparison to previous time! Well done on your improvement! :partying_face:\n", style="orchid bold", padding = 2))
         if self.quiz_score == self.previous_score:
-            print("Your score has remained the same in comparison to last time.\n")
+            console.print(Panel.fit("Your score has remained the same in comparison to last time. :neutral_face:\n", style="orchid bold", padding = 2))
         if self.quiz_score < self.previous_score:
-            print("Your score has decreased since last time. You may want to take the quiz again.\n")
+            console.print(Panel.fit("Your score has decreased since last time. You may want to take the quiz again. :fearful:\n", style="orchid bold", padding = 2))
