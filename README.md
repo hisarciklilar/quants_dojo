@@ -77,3 +77,5 @@ Users may take the quiz repeteadly. In order for them not to just enter the memo
 ## Credits
 
 - Logo is obtained from [ASCII](https://ascii.co.uk). Chosen font type: "stop". Image is cropped from "temples"
+- Color and formatting is done through "rich". instelled using "pip install rich". Documentation is https://github.com/textualize
+- 
