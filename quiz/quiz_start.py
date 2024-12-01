@@ -1,9 +1,7 @@
 import os
-# import quiz.quiz
 import quiz.assets.logo as logo
-# from quiz.assets.question_bank import question_list
-# import quiz.quiz_generator
 from user_database.user_database import UserDatabase
+
 
 user = UserDatabase()
 
@@ -13,9 +11,12 @@ user = UserDatabase()
 #     os.system('cls' if os.name == 'nt' else 'clear')
 #     return user_id 
 
+
 def validate_user_id(id):
+    """
+    Validates user's 'user id' input through checks on the length, type and presence in the user register list.
+    """
     valid_user_id_list = user.call_user_id_list()
-    print(valid_user_id_list)
     try: 
         user_id = int(id)
         if len(id) != 3:
@@ -27,9 +28,11 @@ def validate_user_id(id):
         return False
     return True
 
+
 def start_quiz():
-    # user_id_verified = False
-    # while not user_id_verified:
+    """
+    Asks for 'user id' in a welcome screen.
+    """
     print(logo.logo_picture)
     print("Welcome to Quants Dojo!\n")
     print("Ready to test your Econometrics skills? \n")
@@ -40,15 +43,22 @@ def start_quiz():
             return user_id_str
             
 
-
 def quiz_info():
+    """
+    Display quiz information
+    """
     print(logo.logo_title)
     print("This challenge includes 10 True/False questions.\n")
-    print("Your task is to find the correct answer and type either 'true' or 'false' in terminal.\n")
-    print("You may type 'quit' to quit the quiz anytime.\n")
+    print("Your task is to find whether the statement provided is 'true' or 'false'.\n")
+    print("Type: 'true' (without the quotation mark) if you think the statement is true.\n")
+    print("Type: 'false' (without the quotation mark) if you think the statement is false.\n")
+    print("Type: 'quit' if you want to quit the quiz half-way through\n")
 
 
 def quiz_start():
+    """
+    Returns 'user id' input by running quiz start and info functions
+    """
     user_id_str = start_quiz()
     quiz_info()
     return user_id_str

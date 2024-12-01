@@ -54,7 +54,8 @@ Users may take the quiz repeteadly. In order for them not to just enter the memo
 - Print the number total questions answered up to the progress level and the number of correct answer after each response. Print score up to the point of progress at the end of each question response
 - Clear screen for better visibility when revealing the next question.
 - Makes a list of individual question scores as user proceeds in the quiz. This list of responses are coded as zero for the wrong and as one for the correct user answers. This allows for easy data store and also a straightforward calculation of the quiz score. 
-- In case of a user quitting before the end of survey, scores up until quit are still recorded in a list, adding zero to the questions not answered (those which would be listed post-quit). These scroes are written into the spreadsheet. 
+- In case of a user quitting before the end of survey, scores up until quit are still recorded in a list, adding zero to the questions not answered (those which would be listed post-quit). These scores are written into the spreadsheet.
+  
 ## Features to add
 
 - Creating a databank of questions for different topics and allow the users to choose in which topic they test their skills.
@@ -62,9 +63,16 @@ Users may take the quiz repeteadly. In order for them not to just enter the memo
 - Add a time stamp for completion of the quiz
 - Comparison with the latest previous score and giving feedback
 
+## Things to do
+
+- Work in the code for easy ready - in particular while importing packages
+- Clean redundant lines
+- check for the definitions before submission
+    
 ## Bugs
 
-- Code written so that owner can choose the quiz length. In the current form, the quiz length is set to be 10 questions with a global variable. The spreadsheet created on google drive is designed to hold information for 10 questions. If the owner changes the value of the QUIZ_LENGTH variable to a different value, the functions will run, but the scores written to the spreadsheets will be labelled wrong in spreadsheet. One way to get around this issue would be to re-create a worksheet that would match the set quiz length. 
+- Code written so that owner can choose the quiz length. In the current form, the quiz length is set to be 10 questions with a global variable. The spreadsheet created on google drive is designed to hold information for 10 questions. If the owner changes the value of the QUIZ_LENGTH variable to a different value, the functions will run, but the scores written to the spreadsheets will be labelled wrong in spreadsheet. One way to get around this issue would be to re-create a worksheet that would match the set quiz length.
+- Registered users may use code 999 to practice and then come back to take it using their own id's. Though this is a bug, implications on learning is not bad. Users will learn as they practice.  
 
 ## Credits
 

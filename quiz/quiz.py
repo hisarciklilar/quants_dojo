@@ -14,6 +14,7 @@ class Quiz:
         input("Press enter to continue...")
         os.system('cls' if os.name == 'nt' else 'clear')
 
+
     def end_of_quiz(self):
         if self.question_index >= len(self.question_list) or self.response.lower() == "quit":
             print("end of quiz!")
