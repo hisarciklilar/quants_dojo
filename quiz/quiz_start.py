@@ -32,7 +32,7 @@ def start_quiz():
     """
     Asks for 'user id' in a welcome screen.
     """
-    console.print(logo.logo_picture, style = "magenta bold")
+    print(logo.logo_picture)
     console.print(Panel.fit(" " * 5 + ":dragon: Welcome to Quants Dojo! :dragon:\n \nReady to test your Econometrics skills?", padding = 1, style = "blue bold"))
     while True:
         # print("\n")
@@ -48,7 +48,7 @@ def quiz_info():
     """
     console.print(logo.logo_title, style = "magenta bold")
     console.print(Panel.fit("""This challenge includes [blue bold]10[/blue bold] True/False questions.\n
-    Your task is to find whether the statement provided is 'true' or 'false'.\n
+    Your task is to find whether the statement is 'true' or 'false'.\n
     Type: '[green bold]true[/green bold]' if you think the statement is true.\n
     Type: '[red bold]false[/red bold]' if you think the statement is false.\n
     Type: '[yellow bold]quit[/yellow bold]' if you want to quit the quiz half-way through.""", padding = 1))

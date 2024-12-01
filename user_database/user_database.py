@@ -129,11 +129,11 @@ class UserDatabase:
             console.print(Panel.fit(f"""
             :white_heavy_check_mark: You scored {self.quiz_score}% on this attempt.\n\n
             :white_heavy_check_mark: Your previous score on this test was {self.previous_score}% on {self.previous_date_time}\n""", 
-            style = "violet bold", title = "Quiz Results"))
+            style = "violet bold", title = "Quiz Results", padding=1))
             self.provide_feedback()
         else:
-            print(f"You scored {self.quiz_score}% on this quiz.\n")
-            print("Come back to increase your test score!")
+            print("\n")
+            console.print(Panel.fit(" " * 7+f"You scored {self.quiz_score}% on this quiz.\n\n :glowing_star: Come back to increase your test score! :glowing_star:", style = "violet bold", title = "Quiz Results", padding = 1))
 
     def provide_feedback(self):
         """ 

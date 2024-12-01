@@ -81,7 +81,7 @@ class Quiz:
         else:
             print(f"\n\n[magenta bold]Incorrect.[/magenta bold] :cross_mark: \n \nThe answer was [bold]{correct_answer}[/bold]\n \n")
             print(Panel.fit(f"""You have answered [blue bold]{self.score}[/blue bold] out of [blue bold]{self.question_index +1}[/blue bold] questions correctly.\n
-            Your current score is [blue bold]{round((self.score / (self.question_index + 1))*100, 2)}%[/blue bold]""", padding = 2))  
+            Your current score is [blue bold]{round((self.score / (self.question_index + 1))*100, 2)}%[/blue bold]""", padding = 1))  
             self.track_score(0)
             self.question_progress = False
 
