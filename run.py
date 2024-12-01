@@ -1,30 +1,41 @@
-# import gspread
-# from google.oauth2.service_account import Credentials
-# import os
-import quiz.quiz
-# import quiz.assets.logo as logo
+from quiz.quiz import Quiz
 from quiz.assets.question_bank import question_list
-import quiz.quiz_generator
-import quiz.quiz_start
+from quiz.quiz_generator import QuizGenerator
+from quiz.quiz_start import quiz_start
 from user_database.user_database import UserDatabase
 from quiz.quiz_generator import QUIZ_LENGTH
+from rich.panel import Panel
+from rich.console import Console
 
-# Generate quiz
-quiz_generator = quiz.quiz_generator.QuizGenerator(question_list,QUIZ_LENGTH)
-quiz_question_list = quiz_generator.generate_quiz()
+console = Console()
 
-# Start quiz
-user = UserDatabase()
-user_id_str = quiz.quiz_start.quiz_start()
-user.user_id = int(user_id_str)
+def quants_dojo():
+    # Generate quiz
+    quiz_generator = QuizGenerator(question_list,QUIZ_LENGTH)
+    quiz_question_list = quiz_generator.generate_quiz()
 
-# Run quiz
-quiz = quiz.quiz.Quiz(quiz_question_list)
-while not quiz.end_of_quiz():
-    quiz.reveal_question()
+    # Start quiz
+    user = UserDatabase()
+    user_id_str = quiz_start()
+    user.user_id = int(user_id_str)
 
-# Export results to user database
-#score_list = quiz.score_list
+    # Run quiz
+    quiz = Quiz(quiz_question_list)
+    while not quiz.end_of_quiz():
+        quiz.reveal_question()
 
-user.score_list = quiz.score_list
-user.calculate_final_score()
+    # Export results 
+    user.score_list = quiz.score_list
+
+    # Calculate score
+    user.calculate_final_score()
+
+    restart_quiz()
+
+def restart_quiz():
+    print("\n")
+    console.print(Panel.fit("Press enter if you would like another go", style = "blue bold", title = "Restart the quiz?", padding=1))
+    input()
+    quants_dojo()
+    
+quants_dojo()

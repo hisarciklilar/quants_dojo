@@ -141,8 +141,8 @@ class UserDatabase:
         """
         print("\n")
         if self.quiz_score > self.previous_score:
-            console.print(Panel.fit("Your score has increased in comparison to previous time! Well done on your improvement! :partying_face:\n", style="orchid bold", padding = 2))
+            console.print(Panel.fit("Your score has increased in comparison to previous time! Well done on your improvement! :partying_face:", style="orchid bold", padding = 2))
         if self.quiz_score == self.previous_score:
-            console.print(Panel.fit("Your score has remained the same in comparison to last time. :neutral_face:\n", style="orchid bold", padding = 2))
+            console.print(Panel.fit("Your score has remained the same in comparison to last time. :neutral_face:", style="orchid bold", padding = 2))
         if self.quiz_score < self.previous_score:
-            console.print(Panel.fit("Your score has decreased since last time. You may want to take the quiz again. :fearful:\n", style="orchid bold", padding = 2))
+            console.print(Panel.fit("Your score has decreased since last time. You may want to take the quiz again. :fearful:", style="orchid bold", padding = 2))
