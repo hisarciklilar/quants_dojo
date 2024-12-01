@@ -43,7 +43,24 @@ The quiz questions are created once the user provides a correct id. the tru and 
 
 Users may take the quiz repeteadly. In order for them not to just enter the memorised answers from the previous round, the 
 
+## App's Location:
+
+- Live link:
+  - Quants Dojo < https://quants-dojo-20a4c624877b.herokuapp.com/ >
+
+- GitHub Repository: 
+  - quants_dojo < https://github.com/hisarciklilar/quants_dojo/ >
+
+![Website mockup](/assets/images/readease-mockup.jpg)
+
 ## Existing Features
+
+### Quiz Start
+
+- Quiz starts with a picture and a welcome message. It asks for the user's input for `user id`
+- The registered `user id`'s are stored in a spreadsheet on Google Drive. The valid id's for testing purposes are listed below:
+  - 123, 234, 345, 456, 567, 678, 789, 890, 912. 
+  - 999 is also listed as one of the registered `user id`'s, allowing for a guest access, if a person outside the user registry wants to do the quiz.
 
 ### QuizGenerator
 
@@ -56,7 +73,7 @@ Users may take the quiz repeteadly. In order for them not to just enter the memo
 - Makes a list of individual question scores as user proceeds in the quiz. This list of responses are coded as zero for the wrong and as one for the correct user answers. This allows for easy data store and also a straightforward calculation of the quiz score. 
 - In case of a user quitting before the end of survey, scores up until quit are still recorded in a list, adding zero to the questions not answered (those which would be listed post-quit). These scores are written into the spreadsheet.
   
-## Features to add
+## Future Features
 
 - Creating a databank of questions for different topics and allow the users to choose in which topic they test their skills.
 - For those who genueniely do not know their user id, add a user option to exit the quiz during validation.
@@ -68,11 +85,28 @@ Users may take the quiz repeteadly. In order for them not to just enter the memo
 - Work in the code for easy ready - in particular while importing packages
 - Clean redundant lines
 - check for the definitions before submission
-    
+
+## Manual Testing
+
+### Quiz Start:
+
+| FEATURE BEING TESTED            | TESTING PERFORMED                                | EXPECTATION                              | RESULT    |
+|------------------------|---------------------------------------|------------------------------------------|-----------|
+| User id input   | User presses `enter` without typing  | ValueError raised reminding user to input a number with 3 digits        | Pass |
+| User id input | User types a number with more than 3 digits | A ValueError is raised reminding user to input a number with 3 digits | Pass |
+| User id input | User inputs a non-numeric value | ValueError raised reminding user to input a number with 3 digits        | Pass |
+| User id input | User inputs a valid 3 digit number but with space around (on left or right) | Quiz proceeds to next page; correct id is recorded on spreadsheet | Pass |
+
+
+
+
 ## Bugs
 
 - Code written so that owner can choose the quiz length. In the current form, the quiz length is set to be 10 questions with a global variable. The spreadsheet created on google drive is designed to hold information for 10 questions. If the owner changes the value of the QUIZ_LENGTH variable to a different value, the functions will run, but the scores written to the spreadsheets will be labelled wrong in spreadsheet. One way to get around this issue would be to re-create a worksheet that would match the set quiz length.
 - Registered users may use code 999 to practice and then come back to take it using their own id's. Though this is a bug, implications on learning is not bad. Users will learn as they practice.  
+
+## Deploying the app on Heroku
+
 
 ## Credits
 
@@ -80,7 +114,7 @@ Users may take the quiz repeteadly. In order for them not to just enter the memo
 
 ### Python's Rich Module
 
-- Color and formatting is done through "rich". instelled using "pip install rich". Documentation is https://github.com/textualize. thaks to m
+- Color and formatting is done through "rich". installed using "pip install rich". Documentation is https://github.com/textualize. thaks to m
 - My mentor Matt Bodden for directing me to this module
 - [Python Rich YouTube Video by DevOps Journey](https://www.youtube.com/watch?v=JrGFQp9njas)
 - Chat GPT and Microsoft Co-Pilot for Rich Module Progress Bar

@@ -4,6 +4,7 @@ from user_database.user_database import UserDatabase
 from rich import print
 from rich.console import Console
 from rich.panel import Panel
+from rich.style import Style
 #from rich.panel import Panel
 
 console = Console()
@@ -24,12 +25,14 @@ def validate_user_id(id):
     valid_user_id_list = user.call_user_id_list()
     try: 
         user_id = int(id)
+        print(id)
+        print(user_id)
         if len(id) != 3:
-            raise ValueError(f"User id does not exist. Your user id should be combination of 3 numbers\n")
+            raise ValueError(f"User id does not exist")
         if user_id not in valid_user_id_list:
-            raise ValueError(f"User id is not found in list of users \n If you do not have a registered user id, use 999 \n Your progress will not be recorded in this instance")      
+            raise ValueError(f"User id not found in list of users \n [cyan bold]If you do not have a registered user id, use 999[/cyan bold]\n Your progress will not be recorded in this instance")      
     except ValueError as e:
-        print(f"Invalid data: {e}, please try again.\n")
+        print(f"Invalid data: {e}, [cyan bold]your user id should be a number with 3 digits[/cyan bold], please try again.\n")
         return False
     return True
 
@@ -44,7 +47,7 @@ def start_quiz():
     print(Panel.fit("Welcome to Quants Dojo!\n \nReady to test your Econometrics skills?", padding = 1, style = "blue bold"))
     while True:
         # print("\n")
-        user_id_str = input("Type your USER ID below and continue to the quiz if you dare!\n")
+        user_id_str = input("Type your USER ID below and continue to the quiz if you dare!\n").strip()
         if validate_user_id(user_id_str):
             console.print("User id recorded. Starting the quiz...", style = "yellow")
             return user_id_str
@@ -55,11 +58,6 @@ def quiz_info():
     Display quiz information
     """
     console.print(logo.logo_title, style = "magenta bold")
-    # print("This challenge includes 10 True/False questions.\n")
-    # print("Your task is to find whether the statement provided is 'true' or 'false'.\n")
-    # print("Type: 'true' (without the quotation mark) if you think the statement is true.\n")
-    # print("Type: 'false' (without the quotation mark) if you think the statement is false.\n")
-    # print("Type: 'quit' if you want to quit the quiz half-way through\n")
     print(Panel.fit("""This challenge includes [blue bold]10[/blue bold] True/False questions.\n
     Your task is to find whether the statement provided is 'true' or 'false'.\n
     Type: '[green bold]true[/green bold]' if you think the statement is true.\n
