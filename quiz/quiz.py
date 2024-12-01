@@ -1,6 +1,6 @@
 import os
 from rich import print
-#from rich.panel import Panel
+from rich.panel import Panel
 
 class Quiz:
 
@@ -13,6 +13,7 @@ class Quiz:
         self.score_list=[]
 
     def clear_terminal(self):
+        print("\n")
         input("Press enter to continue...")
         os.system('cls' if os.name == 'nt' else 'clear')
 
@@ -26,7 +27,7 @@ class Quiz:
         while self.question_progress:
             self.clear_terminal()
             question_to_reveal = self.question_list[self.question_index]["question"]
-            print(f"Q.{self.question_index + 1}: True or False?\n \n")
+            print(f"\n\nQ.{self.question_index + 1}: True or False?\n \n")
             self.response = input(f"'{question_to_reveal}' (True/False)\n \n")
             self.check_answer()
         
@@ -39,9 +40,11 @@ class Quiz:
         correct_answer = self.question_list[self.question_index]["answer"]
         if self.response.lower() == correct_answer.lower():
             self.score += 1
-            print(f"Correct! \n \n  The answer was {correct_answer}\n \n")
-            print(f"You have answered {self.score} out of {self.question_index +1} questions correctly. \n \n")
-            print(f"Your current score is {round((self.score / (self.question_index + 1))*100, 2)}% \n \n")   
+            print(f"\n\n[purple]Correct![/purple] \n \nThe answer was {correct_answer}\n \n")
+            # print(f"You have answered {self.score} out of {self.question_index +1} questions correctly. \n \n")
+            # print(f"Your current score is {round((self.score / (self.question_index + 1))*100, 2)}[blue]%[/blue] \n \n")   
+            print(Panel.fit(f"""You have answered [blue]{self.score}[/blue] out of [blue]{self.question_index +1}[/blue] questions correctly.\n
+            Your current score is [blue]{round((self.score / (self.question_index + 1))*100, 2)}%[/blue]""", padding = 2))   
             self.track_score(1)
             self.question_progress = False 
         elif self.response.lower() == "quit":
@@ -50,9 +53,9 @@ class Quiz:
         elif self.response.lower() not in valid_answers:
             print("Value Error: You need to type either 'true' or 'false'. Please try again. \n")
         else:
-            print(f"This is incorrect.\n \n  The answer was {correct_answer}\n \n")
-            print(f"You have answered {self.score} out of {self.question_index +1} questions correctly. \n \n")
-            print(f"Your current score is {round((self.score / (self.question_index + 1))*100, 2)}% \n \n")    
+            print(f"\n\n[purple]Incorrect.[/purple] \n \nThe answer was {correct_answer}\n \n")
+            print(Panel.fit(f"""You have answered [blue]{self.score}[/blue] out of [blue]{self.question_index +1}[/blue] questions correctly.\n
+            Your current score is [blue]{round((self.score / (self.question_index + 1))*100, 2)}%[/blue]""", padding = 2))  
             self.track_score(0)
             self.question_progress = False
 
