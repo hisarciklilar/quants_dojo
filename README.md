@@ -85,6 +85,8 @@ Users may take the quiz repeteadly. In order for them not to just enter the memo
 - Work in the code for easy ready - in particular while importing packages
 - Clean redundant lines
 - check for the definitions before submission
+- Insert the flow chart
+- 
 
 ## Manual Testing
 

@@ -63,7 +63,7 @@ class Quiz:
         valid_answers = ["true", "false"]
         correct_answer = self.question_list[self.question_index]["answer"]
         
-        if self.response.lower() == correct_answer.lower():
+        if self.response.strip().lower() == correct_answer.lower():
             self.score += 1
             print(f"\n\n[magenta bold]Correct![/magenta bold] :party_popper: \n \nThe answer was [bold]{correct_answer}[/bold]\n \n")
             print(Panel.fit(f"""You have answered [blue bold]{self.score}[/blue bold] out of [blue bold]{self.question_index +1}[/blue bold] questions correctly.\n
@@ -71,11 +71,11 @@ class Quiz:
             self.track_score(1)
             self.question_progress = False 
         
-        elif self.response.lower() == "quit":
+        elif self.response.strip().lower() == "quit":
             console.print("\nYou chose to quit the session. Hope you come back soon!\n", style="yellow bold")
             self.question_progress = False
         
-        elif self.response.lower() not in valid_answers:
+        elif self.response.strip().lower() not in valid_answers:
             print("Value Error: You need to type either 'true' or 'false'. Please try again. \n")
         
         else:
