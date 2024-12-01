@@ -126,10 +126,14 @@ class UserDatabase:
         """
         if not self.first_attempt:
             print("\n")
-            console.print(Panel.fit(f"""
-            :white_heavy_check_mark: You scored {self.quiz_score}% on this attempt.\n\n
-            :white_heavy_check_mark: Your previous score on this test was {self.previous_score}% on {self.previous_date_time}\n""", 
-            style = "violet bold", title = "Quiz Results", padding=1))
+            # console.print(Panel.fit(f"""
+            # :white_heavy_check_mark: You scored {self.quiz_score}% on this attempt.\n\n
+            # :white_heavy_check_mark: Your previous score was {self.previous_score}% on {self.previous_date_time}\n""", 
+            # style = "violet bold", title = "Quiz Results", padding=1))
+            console.print(f":white_heavy_check_mark: You scored {self.quiz_score}% on this attempt.\n", style = "violet bold")
+            console.print(f":white_heavy_check_mark: Your previous score was {self.previous_score}% on {self.previous_date_time}\n", style = "violet bold") 
+            
+            
             self.provide_feedback()
         else:
             print("\n")
@@ -141,8 +145,8 @@ class UserDatabase:
         """
         print("\n")
         if self.quiz_score > self.previous_score:
-            console.print(Panel.fit("Your score has increased in comparison to previous time! Well done on your improvement! :partying_face:", style="orchid bold", padding = 2))
+            console.print(":white_heavy_check_mark: Your score has increased in comparison to previous time! Well done on your improvement! :partying_face:", style="violet bold")
         if self.quiz_score == self.previous_score:
-            console.print(Panel.fit("Your score has remained the same in comparison to last time. :neutral_face:", style="orchid bold", padding = 2))
+            console.print(":white_heavy_check_mark: Your score has remained the same in comparison to last time. :neutral_face:", style="violet bold")
         if self.quiz_score < self.previous_score:
-            console.print(Panel.fit("Your score has decreased since last time. You may want to take the quiz again. :fearful:", style="orchid bold", padding = 2))
+            console.print(":white_heavy_check_mark: Your score has decreased since last time. You may want to take the quiz again. :fearful:", style="violet bold")
