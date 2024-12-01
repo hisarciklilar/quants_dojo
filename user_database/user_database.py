@@ -1,7 +1,11 @@
 import gspread
 from google.oauth2.service_account import Credentials
 import datetime
+import time
+from rich.progress import Progress
+from rich.console import Console
 
+console = Console()
 
 QUIZ_LENGTH =10 
 
@@ -42,16 +46,29 @@ class UserDatabase:
         """
         quiz_response_sheet = SHEET.worksheet("quiz_response")
         if len(self.score_list) != QUIZ_LENGTH:
-            print("You did not answer all questions")
             missing_responses = QUIZ_LENGTH - len(self.score_list)
+            print(f"You did not answer {missing_responses} remaining questions")
             for i in range(missing_responses):
                 self.score_list.append(0)
-        self.calculate_quiz_score()
-        self.score_list.insert(0, self.user_id)
-        self.score_list.append(self.quiz_score)
-        self.add_date_to_quiz_record()
-        self.call_previous_score()
-        quiz_response_sheet.append_row(self.score_list)
+        
+        with Progress() as progress:
+            task = progress.add_task("[blue bold]Calculating quiz score...", total=3)
+            
+            self.calculate_quiz_score()
+            progress.update(task, advance =1)
+            time.sleep(1)
+
+            self.score_list.insert(0, self.user_id)
+            self.score_list.append(self.quiz_score)
+            self.add_date_to_quiz_record()
+            progress.update(task, advance = 1)
+            time.sleep(1)
+
+            self.call_previous_score()
+            quiz_response_sheet.append_row(self.score_list)
+            progress.update(task, advance =1)
+            time.sleep(1)
+            
 
 
     def calculate_quiz_score(self):
