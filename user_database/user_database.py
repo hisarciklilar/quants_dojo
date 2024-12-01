@@ -4,10 +4,9 @@ import datetime
 import time
 from rich.progress import Progress
 from rich.console import Console
+from quiz.quiz_generator import QUIZ_LENGTH
 
 console = Console()
-
-QUIZ_LENGTH =10 
 
 SCOPE = [
     "https://www.googleapis.com/auth/spreadsheets",
@@ -22,8 +21,14 @@ SHEET = GSPREAD_CLIENT.open("quants_dojo")
 
 
 class UserDatabase:
+    """
+    Initializes attributes and defines methods required to interact with user data spreadsheet
+    """
 
     def __init__(self):
+        """
+        Initializes UserDatabase attributes
+        """
         self.user_id = 0
         self.score_list = []
         self.quiz_score = 0 

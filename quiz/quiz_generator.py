@@ -1,8 +1,17 @@
 import random 
 
+QUIZ_LENGTH = 10
 
 class QuizGenerator:
+    """
+    Initializes attributes and defines methods required to generate a quiz of desired length from a question bank
+    """
+
+
     def __init__(self, question_data, quiz_length):
+        """
+        Initializes QuizGenerator attributes
+        """
         self.quiz_questions = []
         self.question_data = question_data
         self.quiz_length = quiz_length

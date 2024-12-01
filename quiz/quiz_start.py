@@ -11,13 +11,6 @@ console = Console()
 
 user = UserDatabase()
 
-# def clear_terminal_start():
-#     # input("Press enter if you dare!\n")
-    
-#     os.system('cls' if os.name == 'nt' else 'clear')
-#     return user_id 
-
-
 def validate_user_id(id):
     """
     Validates user's 'user id' input through checks on the length, type and presence in the user register list.
@@ -25,8 +18,6 @@ def validate_user_id(id):
     valid_user_id_list = user.call_user_id_list()
     try: 
         user_id = int(id)
-        print(id)
-        print(user_id)
         if len(id) != 3:
             raise ValueError(f"User id does not exist")
         if user_id not in valid_user_id_list:
@@ -42,9 +33,7 @@ def start_quiz():
     Asks for 'user id' in a welcome screen.
     """
     print(logo.logo_picture)
-    # print("Welcome to Quants Dojo!\n")
-    # print("Ready to test your Econometrics skills? \n")
-    print(Panel.fit("Welcome to Quants Dojo!\n \nReady to test your Econometrics skills?", padding = 1, style = "blue bold"))
+    console.print(Panel.fit(" " * 5 + ":dragon: Welcome to Quants Dojo! :dragon:\n \nReady to test your Econometrics skills?", padding = 1, style = "blue bold"))
     while True:
         # print("\n")
         user_id_str = input("Type your USER ID below and continue to the quiz if you dare!\n").strip()
@@ -58,7 +47,7 @@ def quiz_info():
     Display quiz information
     """
     console.print(logo.logo_title, style = "magenta bold")
-    print(Panel.fit("""This challenge includes [blue bold]10[/blue bold] True/False questions.\n
+    console.print(Panel.fit("""This challenge includes [blue bold]10[/blue bold] True/False questions.\n
     Your task is to find whether the statement provided is 'true' or 'false'.\n
     Type: '[green bold]true[/green bold]' if you think the statement is true.\n
     Type: '[red bold]false[/red bold]' if you think the statement is false.\n
