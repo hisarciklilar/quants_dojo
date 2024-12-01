@@ -43,7 +43,7 @@ def start_quiz():
     # print("Ready to test your Econometrics skills? \n")
     print(Panel.fit("Welcome to Quants Dojo!\n \nReady to test your Econometrics skills?", padding = 1, style = "blue bold"))
     while True:
-        print("\n")
+        # print("\n")
         user_id_str = input("Type your USER ID below and continue to the quiz if you dare!\n")
         if validate_user_id(user_id_str):
             console.print("User id recorded. Starting the quiz...", style = "yellow")

@@ -40,7 +40,7 @@ class Quiz:
         correct_answer = self.question_list[self.question_index]["answer"]
         if self.response.lower() == correct_answer.lower():
             self.score += 1
-            print(f"\n\n[purple]Correct![/purple] \n \nThe answer was {correct_answer}\n \n")
+            print(f"\n\n[magenta bold]Correct![/magenta bold] \n \nThe answer was [bold]{correct_answer}[/bold]\n \n")
             # print(f"You have answered {self.score} out of {self.question_index +1} questions correctly. \n \n")
             # print(f"Your current score is {round((self.score / (self.question_index + 1))*100, 2)}[blue]%[/blue] \n \n")   
             print(Panel.fit(f"""You have answered [blue]{self.score}[/blue] out of [blue]{self.question_index +1}[/blue] questions correctly.\n
@@ -53,9 +53,9 @@ class Quiz:
         elif self.response.lower() not in valid_answers:
             print("Value Error: You need to type either 'true' or 'false'. Please try again. \n")
         else:
-            print(f"\n\n[purple]Incorrect.[/purple] \n \nThe answer was {correct_answer}\n \n")
-            print(Panel.fit(f"""You have answered [blue]{self.score}[/blue] out of [blue]{self.question_index +1}[/blue] questions correctly.\n
-            Your current score is [blue]{round((self.score / (self.question_index + 1))*100, 2)}%[/blue]""", padding = 2))  
+            print(f"\n\n[magenta bold]Incorrect.[/magenta bold] \n \nThe answer was [bold]{correct_answer}[/bold]\n \n")
+            print(Panel.fit(f"""You have answered [blue bold]{self.score}[/blue bold] out of [blue bold]{self.question_index +1}[/blue bold] questions correctly.\n
+            Your current score is [blue bold]{round((self.score / (self.question_index + 1))*100, 2)}%[/blue bold]""", padding = 2))  
             self.track_score(0)
             self.question_progress = False
 
