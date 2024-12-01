@@ -96,6 +96,7 @@ Users may take the quiz repeteadly. In order for them not to just enter the memo
 | User id input | User types a number with more than 3 digits | A ValueError is raised reminding user to input a number with 3 digits | Pass |
 | User id input | User inputs a non-numeric value | ValueError raised reminding user to input a number with 3 digits        | Pass |
 | User id input | User inputs a valid 3 digit number but with space around (on left or right) | Quiz proceeds to next page; correct id is recorded on spreadsheet | Pass |
+| User id input | User inputs a number with 3 digits that is not in the user register list | A message tells the user to input a value that is in the register list, but also giving them the option to use 999 if they are not registered | Pass |
 
 
 

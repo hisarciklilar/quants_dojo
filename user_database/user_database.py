@@ -4,6 +4,7 @@ import datetime
 import time
 from rich.progress import Progress
 from rich.console import Console
+from rich.panel import Panel
 from quiz.quiz_generator import QUIZ_LENGTH
 
 console = Console()
@@ -72,8 +73,8 @@ class UserDatabase:
             self.call_previous_score()
             quiz_response_sheet.append_row(self.score_list)
             progress.update(task, advance =1)
-            time.sleep(1)
-            
+            time.sleep(1)        
+
 
 
     def calculate_quiz_score(self):
@@ -98,25 +99,30 @@ class UserDatabase:
         quiz_score_list_str = SHEET.worksheet("quiz_response").col_values(12)   
         recorded_user_id_list_str = SHEET.worksheet("quiz_response").col_values(1) 
         date_time = SHEET.worksheet("quiz_response").col_values(13)   
+        
         quiz_score_list_str.pop(0)
         recorded_user_id_list_str.pop(0)
         date_time.pop(0)
+        
         quiz_score_list = [int(score) for score in quiz_score_list_str]
         recorded_user_id_list = [int(id) for id in recorded_user_id_list_str]
+        
         if self.user_id in recorded_user_id_list:
             recorded_user_id_list.reverse()
             quiz_score_list.reverse()
             date_time.reverse()
+
             index = recorded_user_id_list.index(self.user_id)
-            print(index)
             self.previous_score = quiz_score_list[index]
             previous_date_time = date_time[index]
-            print(f"You scored {self.quiz_score}% on this attempt.\n")
-            print(f"Your previous score on this test was {self.previous_score}% on {previous_date_time}\n")
+
+            print("\n")
+            console.print(f":white_heavy_check_mark: You scored {self.quiz_score}% on this attempt.\n\n", style = "orchid")
+            console.print(f":white_heavy_check_mark: Your previous score on this test was {self.previous_score}% on {previous_date_time}\n""", style = "orchid bold")
             self.provide_feedback()
         else:
             print(f"You scored {self.quiz_score}% on this quiz.\n")
-            print("come back to increase your test score!")
+            print("Come back to increase your test score!")
 
 
     def provide_feedback(self):
