@@ -110,7 +110,9 @@ class UserDatabase:
         quiz_score_list = [int(score) for score in quiz_score_list_str]
         recorded_user_id_list = [int(id) for id in recorded_user_id_list_str]
         
-        if self.user_id in recorded_user_id_list:
+        if self.user_id == 999:
+            self.first_attempt = True
+        elif self.user_id in recorded_user_id_list:
             self.first_attempt = False
             recorded_user_id_list.reverse()
             quiz_score_list.reverse()
@@ -126,12 +128,8 @@ class UserDatabase:
         """
         if not self.first_attempt:
             print("\n")
-            # console.print(Panel.fit(f"""
-            # :white_heavy_check_mark: You scored {self.quiz_score}% on this attempt.\n\n
-            # :white_heavy_check_mark: Your previous score was {self.previous_score}% on {self.previous_date_time}\n""", 
-            # style = "violet bold", title = "Quiz Results", padding=1))
             console.print(" " * 5 + f":white_heavy_check_mark: You scored {self.quiz_score}% on this attempt.\n", style = "violet bold")
-            console.print(" " * 5 + f":white_heavy_check_mark: Your previous score was {self.previous_score}% on {self.previous_date_time}", style = "violet bold") 
+            console.print(" " * 5 + f":white_heavy_check_mark: Your previous score was {self.previous_score}% on {self.previous_date_time}\n", style = "violet bold") 
             
             
             self.provide_feedback()
@@ -148,4 +146,4 @@ class UserDatabase:
         if self.quiz_score == self.previous_score:
             console.print(" " * 5 + ":white_heavy_check_mark: Your score has remained the same in comparison to last time. :neutral_face:", style="violet bold")
         if self.quiz_score < self.previous_score:
-            console.print(" " * 5 + ":white_heavy_check_mark: Your score has decreased since last time. You may want to take the quiz again. :fearful:", style="violet bold")
+            console.print(" " * 5 + ":white_heavy_check_mark: Your score has decreased since last time. :fearful:", style="violet bold")

@@ -37,7 +37,7 @@ class Quiz:
         Ends quiz when user completes questions or quits
         """
         if self.question_index >= len(self.question_list) or self.response.lower() == "quit":
-            console.print(" " * 20 + "END OF QUIZ!" + "\n" * 2, style = "blue bold")
+            console.print(" " * 20 + "END OF QUIZ!" + "\n", style = "blue bold")
             return True
 
 

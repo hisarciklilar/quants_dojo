@@ -42,8 +42,10 @@ def restart_quiz():
     """
     print("\n")
     console.print(Panel.fit("Press enter if you would like another go", style = "blue bold", title = "Restart the quiz?", padding=1))
-    input()
-    quants_dojo()
-    
+    choice = input()
+    if choice == "":    
+        quants_dojo()
+    elif choice.strip().lower() == "exit":
+        exit()
 
 quants_dojo()

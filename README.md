@@ -33,15 +33,15 @@ Happy coding!
 
 # Quants Dojo
 
-Quants Dojo is a game-like True/False quiz targeting lerners of Econometrics. It is designed to test user's knowledge in certain concepts in Econometrics and help them practise and learn as they answer questions.   
+Quants Dojo is a game-like True/False quiz targeting learners of Econometrics. It is designed to test user's knowledge in certain concepts in Econometrics and help them practice and learn as they answer questions.
 
-The quiz consists of 10 questions. These are designed to test and clarify the confusions and the most commonly made mistakes by the learners.   
+The quiz consists of 10 questions. These are designed to test and clarify the confusions and the most commonly made mistakes by the learners.
 
-Each ccomcept tested is phrased in two alternative ways: (i) the correct answer is True; (ii) the correct answer is false. 
+Each concept tested is phrased in two alternative ways: (i) the correct answer is True; (ii) the correct answer is false.
 
-The quiz questions are created once the user provides a correct id. the tru and false versions of the concept teted is chosen rtandomly for each concept. 
+The quiz questions are created once the user provides a correct id. The true and false versions of the concept tested is chosen randomly for each concept.
 
-Users may take the quiz repeteadly. In order for them not to just enter the memorised answers from the previous round, the 
+Users may take the quiz repeatedly. In order for them not to just enter the memorized answers from the previous round, the
 
 ## App's Location:
 
@@ -81,12 +81,20 @@ Users may take the quiz repeteadly. In order for them not to just enter the memo
 - In case of a user quitting before the end of survey, scores up until quit are still recorded in a list, adding 'zero' point to the questions not answered (those which would be listed post-quit). These scores are written into the spreadsheet through API connection.
 - Particular sections of the question screen are color-coded such as the question number, the words `True` and `False`, number of questions, and the current score.  
 - User moves on to the next question by pressing enter, which clears the screen for the next question. Users also have the choice of quitting the quiz by typing `quit`.
-- User receives a value error if they type anything other than `True` or `False`. 
+- User receives a value error if they type anything other than `True` or `False`.
+- Feedback is provided on the performance and the number of questions answered as the user progresses in the quiz. The score up to the point of progress is also calculated and printed to console after user's response to each question.
+- Correct and incorrect answers are indicated to the user through text and an emoji.
+- A quiz score is calculated and printed on console at the end of the quiz. If the user is revisiting the site, their latest previous score together with the date of attempt is also printed to the console and a comparison of scores is provided with an appropriate emoji.
+- At the very end, the user is given the option to go back to the quiz start.
   
+### API Connection
+
+- A spreadsheet saved in Google Drive is holding information on two worksheets: The `user_list` worksheet includes a list of registered user id's who are expected to take the quiz while `quiz_response` worksheet tracks the performance of users for each question and the data-time they attempt the quiz. Tracking scores for each question allows the owner to analyze which questions the users struggle with the most.  
+
 ## Future Features
 
-- Creating a databank of questions for different topics and allow the users to choose in which topic they test their skills.
-- For those who genueniely do not know their user id, add a user option to exit the quiz during validation.
+- Creating a data bank of questions for different topics and allow the users to choose in which topic they test their skills.
+- For those who genuinely do not know their user id, add a user option to exit the quiz during validation.
 - Add a time stamp for completion of the quiz
 - Comparison with the latest previous score and giving feedback
 
@@ -126,11 +134,15 @@ Users may take the quiz repeteadly. In order for them not to just enter the memo
 | FEATURE BEING TESTED            | TESTING PERFORMED                                | EXPECTATION                              | RESULT    |
 |------------------------|---------------------------------------|------------------------------------------|-----------|
 | Quiz results information | Answered all questions in quiz as a first attempt | Quiz score printed correctly on terminal | Pass |
-| Quiz results information | Answered all questions in quiz as a second or more attempt | Quiz score printed correctly on terminal | Pass |
-| Previous score information | Answered all questions in quiz as a second or more attempt | Latest previous quiz score and date-time of attempt printed correctly on terminal | Pass |
+| Quiz results information | Answered all questions in quiz as a revisiting user | Quiz score printed correctly on terminal | Pass |
+| Previous score information | Answered all questions in quiz as a revisiting user | Latest previous quiz score and date-time of attempt printed correctly on terminal | Pass |
 | Previous score information | Answered all questions in quiz as first attempt | No mentioning of a previous quiz score on terminal. A message is printed instead encouraging user to come back | Pass |
+| Feedback based on comparison of current and previous scores | Took the quiz as a re-visiting user | A feedback is produced and displayed based on a comparison of current and latest previous scores with a relevant emoji | Pass|
 | Go back to start  | Pressed enter in response to 'Restart quiz?' question provided in the very end | Screen returns to start of the quiz on `Enter` | Pass |
-| Exit quiz |  typed `exit` in response to 'Restart quiz?' question provided in the very end | Exit the quiz | Pass |
+
+### User Database API Connection
+
+
 
 ## Bugs
 
