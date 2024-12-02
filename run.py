@@ -1,10 +1,13 @@
-from quiz.quiz import Quiz
-from quiz.assets.question_bank import question_list
-from quiz.quiz_generator import QuizGenerator, QUIZ_LENGTH
-from quiz.quiz_start import quiz_start
-from user_database.user_database import UserDatabase
+# External library
 from rich.panel import Panel
 from rich.console import Console
+# User-written
+from quiz.quiz_generator import QuizGenerator, QUIZ_LENGTH
+from quiz.quiz_start import quiz_start
+from quiz.quiz import Quiz
+from quiz.assets.question_bank import question_list
+from user_database.user_database import UserDatabase
+
 
 console = Console()
 

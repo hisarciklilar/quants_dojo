@@ -1,3 +1,4 @@
+# External library
 import random
 
 QUIZ_LENGTH = 10

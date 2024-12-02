@@ -1,8 +1,10 @@
-import quiz.assets.logo as logo
-from user_database.user_database import UserDatabase
+# External library
 from rich import print
 from rich.console import Console
 from rich.panel import Panel
+# User-written
+import quiz.assets.logo as logo
+from user_database.user_database import UserDatabase
 
 
 console = Console()

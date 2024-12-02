@@ -1,3 +1,4 @@
+# External libraries
 import gspread
 from google.oauth2.service_account import Credentials
 import datetime
@@ -5,6 +6,7 @@ import time
 from rich.progress import Progress
 from rich.console import Console
 from rich.panel import Panel
+# User-written
 from quiz.quiz_generator import QUIZ_LENGTH
 
 console = Console()
