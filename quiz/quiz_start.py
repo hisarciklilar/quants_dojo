@@ -39,7 +39,7 @@ def start_quiz():
     Asks for 'user id' in a welcome screen.
     """
     print(logo.logo_picture)
-    console.print(Panel.fit(" "*5+""":dragon: Welcome to Quants Dojo! :dragon:
+    console.print(Panel.fit(" "* 5 +"""  Welcome to Quants Dojo!
                             \nDare to test your Econometrics skills?""",
                             padding=1, style="blue bold"))
     while True:
