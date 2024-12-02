@@ -114,6 +114,7 @@ class UserDatabase:
 
         if self.user_id == 999:
             self.first_attempt = True
+
         elif self.user_id in recorded_user_id_list:
             self.first_attempt = False
             recorded_user_id_list.reverse()
@@ -153,14 +154,17 @@ class UserDatabase:
         Provides feedback based on a comparison of previous and current scores
         """
         txt_1 = ":white_heavy_check_mark: Your score has "
+        
         if self.quiz_score > self.previous_score:
             txt_2 = "increased in comparison to previous time! "
             txt_3 = "Well done on your improvement! :partying_face:"
             console.print(" " * 5 + txt_1 + txt_2 + txt_3, style="violet bold")
+        
         if self.quiz_score == self.previous_score:
             txt_2 = "remained the same in comparison to last time. "
             txt_3 = ":neutral_face:"
             console.print(" " * 5 + txt_1 + txt_2 + txt_3, style="violet bold")
+        
         if self.quiz_score < self.previous_score:
             txt_2 = "decreased since last time. :fearful:"
             console.print(" " * 5 + txt_1 + txt_2, style="violet bold")

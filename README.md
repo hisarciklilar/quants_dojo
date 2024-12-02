@@ -33,15 +33,18 @@ Happy coding!
 
 # Quants Dojo
 
-Quants Dojo is a game-like True/False quiz targeting learners of Econometrics. It is designed to test user's knowledge in certain concepts in Econometrics and help them practice and learn as they answer questions.
+Quants Dojo is a game-like True/False quiz designed for learners of Econometrics at the beginner to intermediate level. It is designed to test user's knowledge in certain concepts in Econometrics and help them practice and learn as they answer questions.
 
-The quiz consists of 10 questions. These are designed to test and clarify the confusions and the most commonly made mistakes by the learners.
+Through an API connection to a Google Drive spreadsheet, tracking of user performance for each question in each of their attempt also helps the instructors (which will be referred to as the "owner" from this point onwards) to track the progress of the learners and in which topics they tend to struggle the most.
 
-Each concept tested is phrased in two alternative ways: (i) the correct answer is True; (ii) the correct answer is false.
+The quiz consists of 10 questions. These are designed to test and clarify the confusions about the most commonly made mistakes by the learners.
 
-The quiz questions are created once the user provides a correct id. The true and false versions of the concept tested is chosen randomly for each concept.
+Each concept tested is phrased in two alternative ways: (i) the correct answer is `True`; (ii) the correct answer is `False`. The true and false versions of each concept being tested is chosen randomly. This will ensure a different combination of questions each time the quiz is called by a user. Because it is only the phrasing of the concept that is being changed (rather than a random selection of questions from a wider pool), changes in user's performance will be measured accurately by tracking the scores posted on spreadsheet.
 
-Users may take the quiz repeatedly. In order for them not to just enter the memorized answers from the previous round, the
+The quiz questions are created once the user provides a correct id. The valid id's for testing purposes are listed below:
+  - 123, 234, 345, 456, 567, 678, 789, 890, 912.
+  - 999 is also listed as one of the registered `user id`'s, allowing for a guest access. This makes it possible for a person outside the user registry to attempt the quiz.
+
 
 ## App's Location:
 

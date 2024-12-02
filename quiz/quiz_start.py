@@ -13,7 +13,7 @@ user = UserDatabase()
 def validate_user_id(id):
     """
     Validates user's 'user id' input through checks on the
-    length, type and presence in the user register list.
+    length, type, and presence in the user register list.
     """
     valid_user_id_list = user.call_user_id_list()
     try:
@@ -38,7 +38,7 @@ def start_quiz():
     """
     print(logo.logo_picture)
     console.print(Panel.fit(" "*5+""":dragon: Welcome to Quants Dojo! :dragon:
-                            \n\nDare to test your Econometrics skills?""",
+                            \nDare to test your Econometrics skills?""",
                             padding=1, style="blue bold"))
     while True:
         user_id_str = input("Type your USER ID to continue quiz\n").strip()
