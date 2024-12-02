@@ -305,7 +305,7 @@ As of November 2024, below are the steps that need to be followed for establishi
 - Under `Service account details`, provide a `Service account name`. You will see a `Service account ID` being created with an email address for service account. Click `Create and Continue`.
 - Under `Grant this service account to the poject`, choose `Project` and `Editor` as role.
 - Under `Credential`, `Service Accounts`, choose the account you would like to work with.
-- Under `Service accounts`, enable service account.
+- Under `Service accounts`, ensure service account is enabled.
 - Under `Service accounts`, select the `KEY` tab on top and then on the `KEY` page, select `ADD KEY` --> `Create new key`.
 - In the opening window, choose `JSON` as the `Key type`.
 - Once this is complete, go to `APIs and services` again and choose `Library`.
