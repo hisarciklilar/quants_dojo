@@ -61,7 +61,7 @@ def quiz_info():
        '[red bold]false[/red bold]' if you think the statement is false.\n
        '[yellow bold]quit[/yellow bold]' if you want to quit the quiz.
     """
-    console.print(Panel.fit(text, padding=1))
+    console.print(Panel.fit(text))
 
 
 def quiz_start():

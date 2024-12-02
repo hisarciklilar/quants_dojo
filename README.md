@@ -56,6 +56,28 @@ The quiz questions are created once the user provides a correct id. The valid id
 
 ![Website mockup](/assets/images/readease-mockup.jpg)
 
+_Note_: Above images are obtained through http://ami.responsivedesign.is/
+
+## User Experience
+
+The target audience for this website are UG students of social sciences, who are half-way through their degree.
+
+### User Stories
+
+Users of this web application expect the following:
+
+- Navigate around the site easily without frustration.
+- Easily read and understand the information provided in the pages.
+- Receive immediate feedback about their performance on individual questions as well as an overall quiz score.
+- Receive immediate feedback about the change in their progress over time.
+
+### App Owner's Goals
+
+I aim to break the anxiety around learning and application of econometrics by 
+
+- Track the attempts (frequency and dates) of each user.
+- Develop an understanding of the topics/concepts that the users most struggle with
+
 ## Existing Features
 
 ### Quiz Start
