@@ -1,36 +1,5 @@
 ![CI logo](https://codeinstitute.s3.amazonaws.com/fullstack/ci_logo_small.png)
 
-Welcome,
-
-This is the Code Institute student template for deploying your third portfolio project, the Python command-line project. The last update to this file was: **May 14, 2024**
-
-## Reminders
-
-- Your code must be placed in the `run.py` file
-- Your dependencies must be placed in the `requirements.txt` file
-- Do not edit any of the other files or your code may not deploy properly
-
-## Creating the Heroku app
-
-When you create the app, you will need to add two buildpacks from the _Settings_ tab. The ordering is as follows:
-
-1. `heroku/python`
-2. `heroku/nodejs`
-
-You must then create a _Config Var_ called `PORT`. Set this to `8000`
-
-If you have credentials, such as in the Love Sandwiches project, you must create another _Config Var_ called `CREDS` and paste the JSON into the value field.
-
-Connect your GitHub repository and deploy as normal.
-
-## Constraints
-
-The deployment terminal is set to 80 columns by 24 rows. That means that each line of text needs to be 80 characters or less otherwise it will be wrapped onto a second line.
-
----
-
-Happy coding!
-
 # Quants Dojo
 
 Quants Dojo is a game-like True/False quiz designed for learners of Econometrics at the beginner to intermediate level. It is designed to test user's knowledge in certain concepts in Econometrics and help them practice and learn as they answer questions.
@@ -76,24 +45,23 @@ Users of this web application expect the following:
 ![Information screen](./readme_assets/images/information_screen.png)
 ![Question feedback screen](./readme_assets/images/question_feedback_screen.png)
 ![Quiz feedback screen](./readme_assets/images/quiz_feedback_screen.png)
+
 ### App Owner's Goals
 
-I aim to break the anxiety around learning and application of econometrics by 
-
-- Track the attempts (frequency and dates) of each user.
+- To break the anxiety around learning and application of econometrics by providing fun routes to learning
+- Track the attempts (frequency and dates) of each user to have a better understanding of their work patterns.
 - Develop an understanding of the topics/concepts that the users most struggle with
 
 ## Existing Features
 
 ### Quiz Start
 
-- The quiz is designed with an assumption that the owner has a list of registered users in a spreadsheet. It starts with a picture and a welcome message and asks for the user's input for `user id`
-- The registered `user id`'s are stored in a spreadsheet on Google Drive. User's input is checked against the register on the worksheet. Their progress is tracked and recorded throughout the quiz. 
+- The quiz is designed with an assumption that the owner has a list of registered users in a spreadsheet. It starts with an ASCII image and a welcome message. Below these, it asks for the user's input for `user id`
+- The registered `user id`'s are stored in a spreadsheet on Google Drive. User's input is checked against the register on the worksheet. Their progress is tracked and recorded throughout the quiz.
+  
 - Guest access is possible with a user of 999.
 - The second page has the quiz logo. It provides brief information about the quiz and user instructions.
 
-
-  
 ### Quiz Generator Module
 
 - The Quiz Generator allows the owner of the platform to choose the quiz length and store it in a global variable.
@@ -124,16 +92,16 @@ I aim to break the anxiety around learning and application of econometrics by
 
 ## Data Model
 
-The code for the app is a mixture of procedural and Object Oriented Programming. There are three modules created for this app, each working in collaboration.
+The code for the app is a mixture of procedural and Object Oriented Programming (OOP), with more weight on OOP. There are three modules created for this app, each working in collaboration.
 
 ### Module 1 - Quiz Generator
 
-This is a relatively smaller module that is designed to create the quiz by randomly selecting a version of the question from a question data bank.
+This is a relatively smaller module that is designed to create the quiz by randomly selecting a version of the question from an existing question data bank.
 
-- Attributes: 
+- Attributes:
   - quiz_questions (_list_)
   - question_data (_list of dictionaries_)
-  - quiz_lenth (_global integer_)
+  - quiz_length (_global integer_)
 - Method:
   - generate_quiz
   
@@ -165,17 +133,29 @@ This module performs operations in relation to running the quiz.
   - previous_score (_user previous quiz score_)
   - previous_date_time (_most recent previous date/time of attempt_)
   - first_attempt (_Boolen for first versus revisiting user_)
-- Methods: 
+- Methods:
   - call_user_id_list
   - calculate_final_score
-  - calcualte_quiz_score
+  - calculate_quiz_score
   - add_date_to_quiz_record
   - call_previous_score
   - print_score
   - provide_feedback
 
+Screenshots of spreadhseet on user information is provided below:
+
 ![User List](./readme_assets/images/quants_dojo_user_list.png)
 ![Quiz Response](./readme_assets/images/quants_dojo_quiz_response.png)
+
+### External Libraries Used:
+
+- `rich`: is integrated into the project to add some color and style to an otherwise black-white screen. It helps to make the look of the quiz more game-like for the user experience
+- `gspread`: is used to have API functionality. Communication with a spreadsheet in Google Drive is necessary for this app to access user information and track user progress. 
+- `random`: is used for random number generation during the creation of the quiz
+- `os` : used to clear screen on enter when questions are being displayed in turn.
+- `datetime` is used to stamp the date and time of the user's attemt on the quiz.
+- `time`: is used to program the progress bar that shows at the end of the quiz. Something to show the user that calculations are running at the background.
+
 ## Future Features
 
 - Creation of a data bank of questions for different topics and allow the users to choose the  topic they want to test their skills.
@@ -183,27 +163,26 @@ This module performs operations in relation to running the quiz.
 
 ## Flowchart
 
-Below is a flowchart that I created before I started the coding. The final code produced follows this logic. 
+Below is a flowchart that I created before I started the coding. The final code produced follows this logic.
 
 ![flowchart](./readme_assets/images/flowchart.png)
-
 
 ## Manual Testing
 
 ### Quiz Start
 
-| FEATURE BEING TESTED            | TESTING PERFORMED                                | EXPECTATION                              | RESULT    |
-|------------------------|---------------------------------------|------------------------------------------|-----------|
-| User id input   | User presses `enter` without typing  | ValueError raised reminding user to input a number with 3 digits        | Pass |
-| User id input | User types a number with more than 3 digits | A ValueError is raised reminding user to input a number with 3 digits | Pass |
-| User id input | User inputs a non-numeric value | ValueError raised reminding user to input a number with 3 digits        | Pass |
-| User id input | User inputs a valid 3 digit number but with space around (on left or right) | Quiz proceeds to next page; correct id is recorded on spreadsheet | Pass |
-| User id input | User inputs a number with 3 digits that is not in the user register list | A message tells the user to input a value that is in the register list, but also giving them the option to use 999 if they are not registered | Pass |
+| FEATURE BEING TESTED | TESTING PERFORMED                           | EXPECTATION                                                           | RESULT |
+|----------------------|---------------------------------------------|-----------------------------------------------------------------------|--------|
+| User id input        | User presses `enter` without typing         | ValueError raised reminding user to input a number with 3 digits      | Pass   |
+| User id input        | User types a number with more than 3 digits | A ValueError is raised reminding user to input a number with 3 digits | Pass   |
+| User id input        | User inputs a non-numeric value             | ValueError raised reminding user to input a number with 3 digits      | Pass   |
+| User id input        | User inputs a valid 3 digit number but with space around (on left or right) | Quiz proceeds to next page; correct id is recorded on spreadsheet | Pass |
+| User id input        | User inputs a number with 3 digits that is not in the user register list | A message tells the user to input a value that is in the register list, but also giving them the option to use 999 if they are not registered | Pass   |
 
 ### Quiz
 
-| FEATURE BEING TESTED            | TESTING PERFORMED                                | EXPECTATION                              | RESULT    |
-|------------------------|---------------------------------------|------------------------------------------|-----------|
+| FEATURE BEING TESTED                             | TESTING PERFORMED                                | EXPECTATION                              | RESULT    |
+|--------------------------------------------------|--------------------------------------------------|------------------------------------------|-----------|
 | Correctly receive user input of `True` or `False`| Type true or false in various combinations using lower case and capital letters as well as space on left and right of the word  | Accepts the input and triggers calculation of a score, which is presented on screen | Pass |
 | Rejection of keyboard entries other than `True` and `False` | Type different combinations of letter and numbers as an input | User receives a Value Error with a reminder of the valid responses; screen clears and prints the same question on enter for the user to respond | Pass |
 | Rejection of keyboard entries other than `True` and `False` | Press enter without typing any answer | User receives a Value Error with a reminder of the valid responses; screen clears and prints the same question on enter for the user to respond | Pass |
@@ -232,12 +211,12 @@ Below is a flowchart that I created before I started the coding. The final code 
 ### Operating Systems
 
 - The app runs without issues on:
-  - Google Chrome, on Mac, Linux and Windows
+  - Google Chrome, on MacOS, Linux and Windows
   - Firefox on Linux
   - Android phone
 - It fails to run on
-  - Mac Safari
-  - iPhone Safari and Google
+  - MacOS Safari
+  - iPhone (iOS) Safari and Google
 
 ## Code Institute Python Linter
 
@@ -273,7 +252,7 @@ There are two `E203 whitespace before ','` warnings on this file, but I could no
 
 ## Deploying the app on Heroku
 
-Below are the steps that need to be followed for deployment. See [ReadMe Appendix Deployment](./readme_assets/ReadMe_Appendix_Deployment.md) for information with screenshots.
+Below are the steps that need to be followed for deployment. See [ReadMe Appendix Deployment](./readme_assets/ReadMe_Appendix_Deployment.md) for more information with screenshots.
 
 - Place the main code for running the app in the `run.py` file
 - Place the dependencies in the `requirements.txt` file using `pip3 freeze > requirements.txt`. 
@@ -297,9 +276,48 @@ Below are the steps that need to be followed for deployment. See [ReadMe Appendi
 - Search for the repository name that you want to deploy and click `connect`.
 - Choose `Deploy branch` for manual deployment, where one can see the progress of deployment. Click `Enable Automatic Deploys` for automatic deplomyment. This will update the files as GitHub is being updated.  
 
+## Creating a Fork
+
+On GitHub, users may fork this repository by navigating to "Fork" and selecting "Create a new fork". One cannot fork from their repository. Hence, below, a screenshot of how this could be done are provided using a repository created by a different user:
+
+![](./assets/images/readme-images/create-fork.png)
+
+## Cloning a Repository
+
+Users may clone this repository by navigating to "Code" and copying the clone link. This link then can be used in Gitpod or a local code editor.  A screenshot of the links are provided below:
+
+![](./assets/images/readme-images/clone_repository.png)
+
+
+(Please note this is not the only way to clone a repository)
+
+## Establishing an API connection
+
+As of November 2024, below are the steps that need to be followed for establishing an API connection with a Google sheet document. See [ReadMe Appendix API Connection](./readme_assets/ReadMe_Appendix_Deployment.md) for more information with screenshots.
+
+- Login to `Google Cloud` and select `New Project`. Link to Google Cloud Platform <https://console.cloud.google.com/>
+- Give project a name and click `Create`
+- From the left-hand-side menu, choose `APIs and services` and select `Library`
+- Search for the `Google Drive API` in the `API Library`
+- Select `Google Drive API` and click `Enable`
+- As `Google Drive API` is selected, click on the `Create Credentials` button
+- Under `Which API are you using?`, choose `Google Drive API` and select `Application data`. Click `Next`.
+- Under `Service account details`, provide a `Service account name`. You will see a `Service account ID` being created with an email address for service account. Click `Create and Continue`.
+- Under `Grant this service account to the poject`, choose `Project` and `Editor` as role.
+- Under `Credential`, `Service Accounts`, choose the account you would like to work with.
+- Under `Service accounts`, enable service account.
+- Under `Service accounts`, select the `KEY` tab on top and then on the `KEY` page, select `ADD KEY` --> `Create new key`.
+- In the opening window, choose `JSON` as the `Key type`.
+- Once this is complete, go to `APIs and services` again and choose `Library`.
+- This time search for `Google Sheets API`. Select and `Enable` `Google Sheets API`.
+- Once your `JSON` file is downloaded, copy this into your project folder and rename it as `creds.json`. Add this file to `.gitignore` so that private sensitive information is not chared with public.
+- Open the `creds.json` file and copy the `client_email` address to clipboard. Paste this address on the Google sheet's `Share` window. Confirm share. This will allow to establish a connection between the workspace and Google sheet.
+  
 ## Credits
 
 ### ASCII Art
+
+ASCII Art was used to make the look of the app more interesting. It is hope that this will take the attention of the potential users.
 
 - [ASCII](https://ascii.co.uk) is used for the logo text and logo picture.
   - Logo text: Chosen font type: "stop",
