@@ -39,7 +39,7 @@ class Quiz:
         q_list = self.question_list
         if q_index >= len(q_list) or self.response.lower() == "quit":
             console.print(" " * 20 + "END OF QUIZ!" + "\n",
-                          style="blue bold")
+                          style="yellow bold")
             return True
 
     def reveal_question(self):
