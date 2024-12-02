@@ -158,9 +158,10 @@ class UserDatabase:
         txt_1 = ":white_heavy_check_mark: Your score has "
         
         if self.quiz_score > self.previous_score:
-            txt_2 = "increased in comparison to previous time! "
+            txt_2 = "increased in comparison to previous time!\n"
             txt_3 = "Well done on your improvement! :partying_face:"
-            console.print(" " * 5 + txt_1 + txt_2 + txt_3, style="violet bold")
+            console.print(" " * 5 + txt_1 + txt_2, style="violet bold")
+            console.print(" " * 5 + txt_3, style="violet bold")
         
         if self.quiz_score == self.previous_score:
             txt_2 = "remained the same in comparison to last time. "
