@@ -82,8 +82,8 @@ class Quiz:
             self.question_progress = False
 
         elif self.response.strip().lower() == "quit":
-            console.print("\nYou chose to quit the session.\n"
-                          , style="yellow bold")
+            console.print("\nYou chose to quit the session.\n",
+                          style="yellow bold")
             console.print("Hope you come back soon!\n", style="yellow bold")
             self.question_progress = False
 
@@ -91,8 +91,8 @@ class Quiz:
             print("You need to type 'true' or 'false'. Please try again.\n")
 
         else:
-            console.print("\n\nIncorrect. :cross_mark:\n\n"
-                          , style="magenta bold")
+            console.print("\n\nIncorrect. :cross_mark:\n\n",
+                          style="magenta bold")
             print(f"The answer was [bold]{correct_answer}[/bold]\n\n")
             scr = self.score
             tot = self.question_index + 1
