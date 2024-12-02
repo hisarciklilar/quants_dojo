@@ -103,7 +103,7 @@ Users may take the quiz repeatedly. In order for them not to just enter the memo
 
 Below is a flowchart that I created before I started the coding. The final code produced follows this logic. 
 
-![flowchart](./readme_assets/flowchart.png)
+![flowchart](./readme_assets/images/flowchart.png)
 
 ## Things to do
 
@@ -160,7 +160,29 @@ Below is a flowchart that I created before I started the coding. The final code 
   - Google Chrome, on Mac, Linux and Windows
   - Firefox on Linux
   - Android phone
-- It fails to run on Mac Safari and on iPhone (Safari) 
+- It fails to run on
+  - Mac Safari
+  - iPhone Safari and Google
+
+## Code Institute Python Linter
+
+### run.py
+
+![run_py_pep8](./readme_assets/images/run_py_pep8.png)
+
+### quiz_generator.py
+
+![quiz_generator.py](./readme_assets/images/quiz_generator_py_pep8.png)
+
+### quiz_start.py
+
+![quiz_start_py](./readme_assets/images/quiz_start_py_pep8.png)
+
+### quiz.py
+
+![quiz.py](./readme_assets/images/quiz_py_pep8.png)
+
+There are two `E203 whitespace before ','` warnings on this file, but I could not spot the issue for fixing.
 
 ## Bugs
 
