@@ -89,7 +89,8 @@ Users may take the quiz repeatedly. In order for them not to just enter the memo
   
 ### API Connection
 
-- A spreadsheet saved in Google Drive is holding information on two worksheets: The `user_list` worksheet includes a list of registered user id's who are expected to take the quiz while `quiz_response` worksheet tracks the performance of users for each question and the data-time they attempt the quiz. Tracking scores for each question allows the owner to analyze which questions the users struggle with the most.  
+- A spreadsheet saved in Google Drive is holding information on two worksheets: The `user_list` worksheet includes a list of registered `user id`'s who are expected to take the quiz while `quiz_response` worksheet tracks the performance of users for each question and the date-time they attempt the quiz. Tracking scores for each question allows the owner to analyze which questions the users struggle with the most.  
+- For revisiting users, the previous scores are called from the speadsheet and the most recent previous score is compared with the current score.
 
 ## Future Features
 
@@ -97,6 +98,12 @@ Users may take the quiz repeatedly. In order for them not to just enter the memo
 - For those who genuinely do not know their user id, add a user option to exit the quiz during validation.
 - Add a time stamp for completion of the quiz
 - Comparison with the latest previous score and giving feedback
+
+## Flowchart
+
+Below is a flowchart that I created before I started the coding. The final code produced follows this logic. 
+
+![flowchart](./readme_assets/flowchart.png)
 
 ## Things to do
 
@@ -108,7 +115,7 @@ Users may take the quiz repeatedly. In order for them not to just enter the memo
 
 ## Manual Testing
 
-### Quiz Start:
+### Quiz Start
 
 | FEATURE BEING TESTED            | TESTING PERFORMED                                | EXPECTATION                              | RESULT    |
 |------------------------|---------------------------------------|------------------------------------------|-----------|
@@ -140,13 +147,24 @@ Users may take the quiz repeatedly. In order for them not to just enter the memo
 | Feedback based on comparison of current and previous scores | Took the quiz as a re-visiting user | A feedback is produced and displayed based on a comparison of current and latest previous scores with a relevant emoji | Pass|
 | Go back to start  | Pressed enter in response to 'Restart quiz?' question provided in the very end | Screen returns to start of the quiz on `Enter` | Pass |
 
-### User Database API Connection
+### User Database API Connection
 
+| FEATURE BEING TESTED            | TESTING PERFORMED                                | EXPECTATION                              | RESULT    |
+|------------------------|---------------------------------------|------------------------------------------|-----------|
+| API connection | Data from each of the two worksheets are called and saved as lists during programming of the quiz | Correct data is exported in list format | Pass |
+| API connection | Writing of user-specific data to `quiz_response` worksheet | User id's, user's quiz performance for each question, total quiz score and the date-time of attempt are written to rows in worksheet | Pass | 
 
+### Operating Systems
+
+- The app runs without issues on:
+  - Google Chrome, on Mac, Linux and Windows
+  - Firefox on Linux
+  - Android phone
+- It fails to run on Mac Safari and on iPhone (Safari) 
 
 ## Bugs
 
-- Code written so that owner can choose the quiz length. In the current form, the quiz length is set to be 10 questions with a global variable. The spreadsheet created on google drive is designed to hold information for 10 questions. If the owner changes the value of the QUIZ_LENGTH variable to a different value, the functions will run, but the scores written to the spreadsheets will be labelled wrong in spreadsheet. One way to get around this issue would be to re-create a worksheet that would match the set quiz length.
+- Code written in a way that owner can choose the quiz length. In the current form, the quiz length is set to be 10 questions with a global variable. The spreadsheet created on google drive is designed to hold information for 10 questions. If the owner changes the value of the QUIZ_LENGTH variable to a different value, the functions will run, but the scores written to the spreadsheets will be labelled wrong in spreadsheet. One way to get around this issue would be to re-create a worksheet that would match the set quiz length.
 - Registered users may use code 999 to practice and then come back to take it using their own id's. Though this is a bug, implications on learning is not bad. Users will learn as they practice.  
 - At the end of the quiz, printing of quiz results in the panel produces extra space on the left, which I failed to get rid of.  
 
@@ -155,12 +173,20 @@ Users may take the quiz repeatedly. In order for them not to just enter the memo
 
 ## Credits
 
-- [ASCII](https://ascii.co.uk). Chosen font type: "stop". Image is cropped from "temples"
+### ASCII Art
+
+- [ASCII](https://ascii.co.uk) is used for the logo text and logo picture.
+  - Logo text: Chosen font type: "stop",
+  - Logo image: Cropped from "temples" image.
 
 ### Python's Rich Module
 
-- Color and formatting is done through "rich". installed using "pip install rich". Documentation is https://github.com/textualize. thaks to m
-- My mentor Matt Bodden for directing me to this module
-- [Python Rich YouTube Video by DevOps Journey](https://www.youtube.com/watch?v=JrGFQp9njas)
-- Chat GPT and Microsoft Co-Pilot for Rich Module Progress Bar
+- Thanks to my mentor Matt Bodden for directing me to this module
+- Color, formatting and emoji insertions are done through the `Rich Module`. 
+  - Install the module using `pip install rich`
+  - On terminal, type `python -m rich` to access manual
+  - Documentation is provided on < https://github.com/textualize >. 
+- Usage examples and explanations: 
+  - [Python Rich YouTube Video by DevOps Journey](https://www.youtube.com/watch?v=JrGFQp9njas)
+  - Chat GPT and Microsoft Co-Pilot for Rich Module Progress Bar
   
